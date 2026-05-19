@@ -20,8 +20,10 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-# Diretorio do projeto (ajuste conforme servidor)
-PROJECT_DIR="${PROJECT_DIR:-/home/hsfasaude/htdocs/guiapaciente.hsfasaude.com.br}"
+# Diretorio do projeto - auto-detecta a pasta do script
+# (pode ser sobrescrito via env var PROJECT_DIR no .env)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="${PROJECT_DIR:-$SCRIPT_DIR}"
 
 # Nome da app PM2
 APP_NAME="guiapaciente-site"

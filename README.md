@@ -80,7 +80,7 @@ npm run start        # node server.js -> http://localhost:3010
 ./deploy.sh --skip-pm2       # pula o PM2
 ```
 
-O `PROJECT_DIR` default é `/home/hsfasaude/htdocs/guiapaciente.hsfasaude.com.br` (ajuste no topo do script ou via variável de ambiente).
+O `PROJECT_DIR` é auto-detectado da pasta do `deploy.sh` (pode sobrescrever via env var). No servidor HSFA, o projeto vive em `/home/guiapaciente/`.
 
 ---
 
