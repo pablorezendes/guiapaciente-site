@@ -10,8 +10,9 @@ GREEN='\033[0;32m'; YELLOW='\033[1;33m'; RED='\033[0;31m'; BLUE='\033[0;34m'; NC
 
 PROJECT_DIR="/home/guiapaciente"
 DOMAIN="guiapaciente.hsfasaude.com.br"
-NGINX_SITE="/etc/nginx/sites-available/$DOMAIN"
-NGINX_LINK="/etc/nginx/sites-enabled/$DOMAIN"
+# CloudPanel inclui apenas *.conf - manter a extensao!
+NGINX_SITE="/etc/nginx/sites-available/${DOMAIN}.conf"
+NGINX_LINK="/etc/nginx/sites-enabled/${DOMAIN}.conf"
 
 echo -e "${BLUE}=============================================${NC}"
 echo -e "${BLUE}  Setup Guia do Paciente HSFA${NC}"
