@@ -69,7 +69,15 @@ h1, h2{ letter-spacing:-.02em; }
   -webkit-backdrop-filter:saturate(180%) blur(18px);
   border-bottom:1px solid rgba(1,113,123,.10);
 }
-.brand{ display:inline-flex; align-items:center; }
+
+/* nav-wrap: logo esq | menu centro | lang+toggle direita */
+.nav-wrap{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:14px 24px;
+}
+.brand{ display:inline-flex; align-items:center; flex-shrink:0; }
 .brand-logo{
   height:50px;
   width:auto;
@@ -78,8 +86,89 @@ h1, h2{ letter-spacing:-.02em; }
   transition:transform .3s var(--easing);
 }
 .brand-logo:hover{ transform:translateY(-1px) scale(1.02); }
+
+.nav-menu{
+  display:flex;
+  gap:2px;
+  flex-wrap:nowrap;
+  flex:1;
+  justify-content:center;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+  margin-left:auto;
+}
+
+/* ----- LANG SWITCH com bandeiras SVG ----- */
+.lang-switch{
+  display:inline-flex;
+  gap:2px;
+  background:rgba(255,255,255,.55);
+  padding:4px;
+  border-radius:30px;
+  border:1px solid rgba(1,113,123,.12);
+  backdrop-filter:blur(10px);
+  box-shadow:0 4px 14px rgba(1,73,81,.06);
+}
+.lang-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:6px 12px;
+  border-radius:20px;
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:.78rem;
+  color:var(--c-text-muted);
+  background:transparent;
+  transition:.25s var(--easing);
+  border:none;
+  cursor:pointer;
+}
+.lang-btn:hover{
+  background:rgba(1,113,123,.06);
+  color:var(--c-teal-dark);
+}
+.lang-btn.is-active{
+  background:linear-gradient(135deg, var(--c-aurora-1), var(--c-aurora-2));
+  color:#fff;
+  box-shadow:0 4px 12px rgba(1,113,123,.30);
+}
+.lang-btn .flag{
+  width:22px; height:16px;
+  border-radius:3px;
+  display:block;
+  box-shadow:0 1px 3px rgba(0,0,0,.18);
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+@media (max-width:1200px){
+  .nav-menu{
+    position:absolute;
+    top:100%; left:0; right:0;
+    flex-direction:column;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(14px);
+    padding:14px 24px 22px;
+    box-shadow:var(--shadow);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+    flex:none;
+    justify-content:flex-start;
+  }
+  .nav-menu.is-open{ max-height:600px; }
+}
 @media (max-width:680px){
   .brand-logo{ height:40px; }
+  .lang-btn{ padding:5px 8px; gap:5px; }
+  .lang-btn span:last-child{ display:none; }
+  .lang-btn .flag{ width:20px; height:14px; }
 }
 
 /* selo ONA com leve glow ambar */
