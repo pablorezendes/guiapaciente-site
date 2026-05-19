@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#D6EBED"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <pattern id="d" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.2" fill="#01717B" opacity=".35"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#g)"/>
+  <rect width="800" height="800" fill="url(#d)"/>
+  <g transform="translate(400, 330)">
+    <circle r="64" fill="#014951" opacity=".08"/>
+    <path d="M -34 -22 h 68 a 8 8 0 0 1 8 8 v 36 a 8 8 0 0 1 -8 8 h -68 a 8 8 0 0 1 -8 -8 v -36 a 8 8 0 0 1 8 -8 z" fill="none" stroke="#014951" stroke-width="3" opacity=".7"/>
+    <circle cx="0" cy="2" r="14" fill="none" stroke="#014951" stroke-width="3" opacity=".7"/>
+    <circle cx="24" cy="-12" r="2.5" fill="#014951" opacity=".7"/>
+  </g>
+  <text x="50%" y="440"  text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="57.142857142857146" font-weight="800" fill="#014951" letter-spacing="-0.5">Terapia Ocupacional</text>
+  <text x="50%" y="486"  text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26.666666666666668" fill="#01717B">Avatar / foto profissional</text>
+  <text x="50%" y="522" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" fill="#01717B" opacity=".8">substitua public/img/terapia-ocupacional.jpg  -  800x800px</text>
+  <rect x="24" y="24" width="752" height="752" fill="none" stroke="#014951" stroke-width="2" stroke-dasharray="6 8" opacity=".35" rx="18"/>
+</svg>

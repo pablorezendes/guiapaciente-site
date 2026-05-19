@@ -1,0 +1,29 @@
+{
+  "name": "guiapaciente-site",
+  "version": "2.0.0",
+  "description": "Guia do Paciente - Hospital Sao Francisco de Assis (HSFA)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "start": "node server.js",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:restart": "pm2 restart guiapaciente-site --update-env",
+    "pm2:logs": "pm2 logs guiapaciente-site",
+    "pm2:stop": "pm2 stop guiapaciente-site"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

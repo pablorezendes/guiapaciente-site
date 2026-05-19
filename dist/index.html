@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Guia do Paciente 2026 — Hospital São Francisco de Assis. Orientações sobre internação, acompanhantes, segurança, direitos e deveres." />
+  <meta name="theme-color" content="#01717B" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/img/icon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="HSFA Guia" />
+
+  <title>Guia do Paciente 2026 — Hospital São Francisco de Assis</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="module" crossorigin src="/assets/main-PBXbZztM.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-BEbBDSpD.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="topo">
+    <div class="container nav-wrap">
+      <a class="brand" href="#topo" aria-label="HSFA — página inicial">
+        <!-- SLOT: logo principal -> public/img/logo.png -->
+        <img class="brand-logo" src="/img/logo.png" alt="Hospital São Francisco de Assis - HSFA">
+      </a>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Seletor de idioma">
+          <button class="lang-btn is-active" data-lang="pt" aria-label="Português"><span aria-hidden="true">🇧🇷</span><span>PT</span></button>
+          <button class="lang-btn" data-lang="en" aria-label="English"><span aria-hidden="true">🇺🇸</span><span>EN</span></button>
+          <button class="lang-btn" data-lang="es" aria-label="Español"><span aria-hidden="true">🇪🇸</span><span>ES</span></button>
+        </div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav id="menu" class="nav-menu" aria-label="Menu principal">
+        <a href="#bem-vindo" data-i18n="nav.welcome">Bem-vindo</a>
+        <a href="#internacao" data-i18n="nav.admission">Internação</a>
+        <a href="#acomodacoes" data-i18n="nav.accommodations">Acomodações</a>
+        <a href="#cirurgia" data-i18n="nav.surgery">Cirurgia</a>
+        <a href="#equipe" data-i18n="nav.team">Equipe</a>
+        <a href="#alimentacao" data-i18n="nav.meals">Alimentação</a>
+        <a href="#seguranca" data-i18n="nav.safety">Segurança</a>
+        <a href="#direitos" data-i18n="nav.rights">Direitos</a>
+        <a href="#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal data-reveal-delay="1">
+        <span class="eyebrow" data-i18n="hero.eyebrow"><span class="dot"></span> Plantão 24h • Acreditado ONA</span>
+        <h1 id="hero-title">
+          <span data-i18n="hero.title.part1">Guia do</span>
+          <span class="hl" data-i18n="hero.title.highlight">Paciente</span><br>
+          <span class="year">2026</span>
+        </h1>
+        <p class="lead" data-i18n="hero.lead">O melhor atendimento, em qualquer hora que precisar. Este guia reúne tudo o que você e seus familiares precisam saber sobre sua permanência no Hospital São Francisco de Assis.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#bem-vindo"><span data-i18n="hero.cta.primary">Começar a leitura</span> <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#contato" data-i18n="hero.cta.secondary">Falar com o hospital</a>
+        </div>
+
+        <ul class="hero-stats" role="list">
+          <li><strong>1968</strong><span data-i18n="hero.stat.founded">Fundado em Goiânia-GO</span></li>
+          <li><strong>24h</strong><span data-i18n="hero.stat.er">Pronto Socorro</span></li>
+          <li><strong>2</strong><span data-i18n="hero.stat.icu">UTIs (uma humanizada)</span></li>
+          <li><strong>ONA</strong><span data-i18n="hero.stat.accred">Acreditado pleno</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-art" data-reveal data-reveal-delay="2">
+        <div class="hero-card">
+          <!-- SLOT: capa do hero -> public/img/hero-capa.jpg (900x1200) -->
+          <img src="/img/hero-capa.svg" alt="Capa do Guia do Paciente 2026 do HSFA" loading="eager" data-i18n-attr="alt|hero.capa.alt">
+        </div>
+        <div class="hero-badge">
+          <span class="badge-num" aria-hidden="true">+</span>
+          <span class="badge-text" data-i18n-html="hero.badge">Cuidado<br>humanizado</span>
+        </div>
+        <div class="hero-selo" aria-label="Acreditado ONA">
+          <!-- SLOT: selo ONA -> public/img/selo-ona.png -->
+          <img src="/img/selo-ona.png" alt="Selo ONA - Acreditado com Excelência">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MVV -->
+  <section class="mvv" aria-labelledby="mvv-title">
+    <div class="container">
+      <h2 id="mvv-title" class="section-title center" data-i18n="mvv.title">Missão • Visão • Valores</h2>
+      <p class="section-sub center" data-i18n="mvv.sub">O propósito que orienta cada decisão dentro do hospital.</p>
+
+      <div class="mvv-grid">
+        <article class="mvv-card">
+          <div class="mvv-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <h3 data-i18n="mvv.mission.title">Missão</h3>
+          <p data-i18n="mvv.mission.text">Cuidar de vidas por meio de um atendimento médico-hospitalar humanizado, com foco na excelência e na sustentabilidade.</p>
+        </article>
+        <article class="mvv-card">
+          <div class="mvv-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3 data-i18n="mvv.vision.title">Visão</h3>
+          <p data-i18n="mvv.vision.text">Ser reconhecido nacionalmente pela excelência no atendimento médico-hospitalar.</p>
+        </article>
+        <article class="mvv-card">
+          <div class="mvv-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+          <h3 data-i18n="mvv.values.title">Valores</h3>
+          <p data-i18n="mvv.values.text">Ética, competência, humanização, sustentabilidade, bom senso, trabalho em equipe e foco no resultado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- BEM-VINDO -->
+  <section class="welcome" id="bem-vindo" aria-labelledby="welcome-title">
+    <div class="container welcome-grid">
+      <div class="welcome-text">
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="welcome.eyebrow">Prezado cliente</span></span>
+        <h2 id="welcome-title" class="section-title">
+          <span data-i18n="welcome.title.part1">Seja bem-vindo ao</span> <br>
+          <span class="hl" data-i18n="welcome.title.highlight">Hospital São Francisco de Assis</span>
+        </h2>
+        <p data-i18n-html="welcome.p1">Fundado em <strong>4 de outubro de 1968</strong>, o HSFA tem o propósito de oferecer um atendimento médico-hospitalar de excelência. Hoje, destaca-se no atendimento a pacientes de alta complexidade, com uma equipe multidisciplinar altamente capacitada.</p>
+        <p data-i18n="welcome.p2">Este guia foi preparado com cuidado para orientar pacientes, acompanhantes e visitantes sobre nossas regras gerais e esclarecimentos úteis durante sua permanência no hospital.</p>
+        <p class="signature">
+          <span>Dr. Hugo Walter Frota Filho</span><br>
+          <small data-i18n="welcome.director">Diretor Geral</small>
+        </p>
+      </div>
+
+      <aside class="specialties">
+        <h3 data-i18n="welcome.specialties">Áreas de alta complexidade</h3>
+        <ul class="chips" role="list">
+          <li>Cirurgia Geral</li><li>Cirurgia Cardíaca</li><li>Cirurgia Vascular</li>
+          <li>Cirurgia do Aparelho Digestivo</li><li>Cirurgia Plástica</li><li>Neurocirurgia</li>
+          <li>Ortopedia</li><li>Otorrino</li><li>Urologia e Nefrologia</li>
+          <li>Hemodinâmica</li><li>Radiologia Intervencionista</li><li>Bucomaxilofacial</li>
+        </ul>
+        <h3 class="mt" data-i18n="welcome.imaging">Diagnóstico por imagem</h3>
+        <ul class="chips chips-alt" role="list">
+          <li>Ressonância Magnética</li><li>Tomografia 3D / Multislice</li>
+          <li>Mamografia Digital</li><li>Ecocardiograma</li><li>Hemodinâmica</li>
+          <li>Holter / Mapa</li><li>Colonoscopia</li><li>Endoscopia</li>
+          <li>Raio-X Digital</li><li>Ultrassom Vascular</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TEAM INFO -->
+  <section class="team-info" aria-labelledby="team-info-title">
+    <div class="container">
+      <h2 id="team-info-title" class="section-title center" data-i18n="teaminfo.title">Nossa equipe está pronta para você</h2>
+      <div class="info-cards">
+        <div class="info-card">
+          <span class="info-num">02</span>
+          <h4 data-i18n="teaminfo.icu.title">UTIs</h4>
+          <p data-i18n="teaminfo.icu.text">Sendo uma humanizada — primeira do gênero em Goiás.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-num">24h</span>
+          <h4 data-i18n="teaminfo.docs.title">Médicos disponíveis</h4>
+          <p data-i18n="teaminfo.docs.text">Pronto Socorro com atendimento ininterrupto.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-num" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2a2 2 0 0 1-.6 1.4L4 17h5"/><path d="M9 17a3 3 0 0 0 6 0"/></svg></span>
+          <h4 data-i18n="teaminfo.bell.title">Campainha à beira-leito</h4>
+          <p data-i18n="teaminfo.bell.text">Para acionamento imediato da enfermagem, com indicadores de qualidade de atendimento.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-num" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <h4 data-i18n="teaminfo.support.title">Suporte hierárquico</h4>
+          <p data-i18n="teaminfo.support.text">Gerente de enfermagem, Médico Assistente e Administrador disponíveis quando necessário.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNAÇÃO -->
+  <section class="section-light" id="internacao" aria-labelledby="internacao-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> <span data-i18n="adm.chapter">Capítulo 01</span></span>
+      <h2 id="internacao-title" class="section-title center" data-i18n="adm.title">Orientações para Internação</h2>
+      <p class="section-sub center" data-i18n="adm.sub">Documentos e providências para que a internação ocorra com tranquilidade.</p>
+
+      <div class="checklist-grid">
+        <div class="checklist-card">
+          <div class="check-head">
+            <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+            <h3 data-i18n="adm.docs.title">Documentos do paciente</h3>
+          </div>
+          <ul>
+            <li data-i18n-html="adm.docs.li1">RG, CNH e CPF <strong>originais</strong></li>
+            <li data-i18n-html="adm.docs.li2">Menores de idade: <strong>Certidão de Nascimento</strong> + documento dos responsáveis</li>
+          </ul>
+        </div>
+        <div class="checklist-card">
+          <div class="check-head">
+            <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-7L9 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg></span>
+            <h3 data-i18n="adm.resp.title">Responsável financeiro</h3>
+          </div>
+          <ul>
+            <li data-i18n="adm.resp.li1">Responsável legal que assume decisões e despesas</li>
+            <li data-i18n="adm.resp.li2">Documentos originais também são exigidos</li>
+            <li data-i18n="adm.resp.li3">Assinatura do contrato de prestação de serviço</li>
+          </ul>
+        </div>
+        <div class="checklist-card">
+          <div class="check-head">
+            <span class="check-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5 0 3-1.5 3-3.5S20.5 7 19 7h-1.26a8 8 0 1 0-11.62 9"/><path d="M16 16l-4 4-4-4M12 20V10"/></svg></span>
+            <h3 data-i18n="adm.plan.title">Plano de saúde</h3>
+          </div>
+          <ul>
+            <li data-i18n="adm.plan.li1">Cartão original do convênio</li>
+            <li data-i18n="adm.plan.li2">Autorização de internação</li>
+            <li data-i18n="adm.plan.li3">Autorização de medicamentos e materiais especiais (se houver)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div>
+          <h4 data-i18n="adm.callout.title">Sobre o convênio</h4>
+          <p data-i18n-html="adm.callout.text">Informe-se antecipadamente com o convênio sobre <strong>abrangência e limitações</strong> do plano. As despesas não cobertas pelo convênio serão cobradas diretamente do paciente ou do responsável.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ACOMODAÇÕES -->
+  <section class="accommodations" id="acomodacoes" aria-labelledby="acomodacoes-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> <span data-i18n="acc.chapter">Capítulo 02</span></span>
+      <h2 id="acomodacoes-title" class="section-title center" data-i18n="acc.title">Acomodações</h2>
+      <p class="section-sub center" data-i18n="acc.sub">Enfermaria, apartamento e UTI — cada acomodação com regras próprias para o conforto e segurança de todos.</p>
+
+      <div class="tabs" role="tablist" aria-label="Tipos de acomodação">
+        <button class="tab is-active" role="tab" aria-selected="true" aria-controls="tab-enf" id="t-enf">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v6"/><path d="M3 18h18M7 18v3M17 18v3"/></svg>
+          <span data-i18n="acc.tab.ward">Enfermaria</span>
+        </button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-apt" id="t-apt">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 9h1M9 13h1M14 9h1M14 13h1"/></svg>
+          <span data-i18n="acc.tab.suite">Apartamento</span>
+        </button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-uti" id="t-uti">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <span data-i18n="acc.tab.icu">UTI</span>
+        </button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tab-uti-h" id="t-uti-h">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span data-i18n="acc.tab.icu_h">UTI Humanizada</span>
+        </button>
+      </div>
+
+      <div class="tab-panel is-active" role="tabpanel" id="tab-enf" aria-labelledby="t-enf">
+        <div class="acc-imgs" data-reveal>
+          <!-- SLOT: enfermaria -> public/img/enfermaria.jpg (1400x900) -->
+          <figure class="imgshow">
+            <span class="imgshow-tag">Enfermaria</span>
+            <img src="/img/enfermaria.svg" alt="Vista da enfermaria do HSFA">
+            <figcaption class="imgshow-cap">
+              <b>Enfermaria coletiva</b><span>Conforto compartilhado com supervisão 24h</span>
+            </figcaption>
+          </figure>
+          <!-- SLOT: recepcao -> public/img/recepcao.jpg (1400x900) -->
+          <figure class="imgshow">
+            <span class="imgshow-tag">Recepção</span>
+            <img src="/img/recepcao.svg" alt="Recepção do hospital HSFA">
+            <figcaption class="imgshow-cap">
+              <b>Recepção</b><span>Acolhimento na entrada do hospital</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="acc-grid">
+          <div class="rule"><span class="rule-tag">Acompanhante</span><p>Permitido apenas em casos específicos: <strong>idosos, crianças, pós-operatórios ou portadores de necessidades especiais</strong>. Na enfermaria feminina, deve ser do mesmo gênero.</p></div>
+          <div class="rule"><span class="rule-tag">Troca de acompanhante</span><p>Apenas nos horários <strong>07h às 09h</strong> ou <strong>17h às 19h</strong>.<br>Em isolamento: somente das 07h às 09h.</p></div>
+          <div class="rule"><span class="rule-tag">Visitas</span><p>1 visitante por período:<br>Manhã: <strong>10h às 10h30</strong><br>Tarde: <strong>15h às 15h30</strong></p></div>
+          <div class="rule"><span class="rule-tag">Visita religiosa</span><p><strong>15h</strong>, duração máxima de <strong>15 minutos</strong>.</p></div>
+          <div class="rule warn"><span class="rule-tag warn">Atenção</span><p>O hospital <strong>não oferece enxoval</strong> para acompanhantes e <strong>não permite a entrada de travesseiros</strong>.</p></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="tab-apt" aria-labelledby="t-apt" hidden>
+        <div class="acc-imgs">
+          <!-- SLOT: apartamento -> public/img/apartamento.jpg (1400x900) -->
+          <figure class="imgshow">
+            <span class="imgshow-tag">Apartamento</span>
+            <img src="/img/apartamento.svg" alt="Apartamento individual do HSFA">
+            <figcaption class="imgshow-cap">
+              <b>Apartamento privativo</b><span>Quarto individual com acompanhante 24h</span>
+            </figcaption>
+          </figure>
+          <!-- SLOT: refeitorio -> public/img/refeitorio.jpg (1400x900) -->
+          <figure class="imgshow">
+            <span class="imgshow-tag">Refeitório</span>
+            <img src="/img/refeitorio.svg" alt="Refeitório do hospital">
+            <figcaption class="imgshow-cap">
+              <b>Refeitório</b><span>Refeições para acompanhantes no subsolo</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="acc-grid">
+          <div class="rule"><span class="rule-tag">Acompanhante</span><p>É permitida a permanência de <strong>1 acompanhante</strong> durante todo o período em que o paciente estiver sob tratamento.</p></div>
+          <div class="rule"><span class="rule-tag">Visitas</span><p>Liberadas das <strong>08h às 18h</strong>, com até <strong>2 visitantes por vez</strong>.</p></div>
+          <div class="rule"><span class="rule-tag">Troca de acompanhante</span><p>Somente nos horários <strong>07h às 09h</strong> ou <strong>17h às 19h</strong>.</p></div>
+          <div class="rule warn"><span class="rule-tag warn">Atenção</span><p>O hospital <strong>não oferece enxoval</strong> para acompanhantes e <strong>não permite a entrada de travesseiros</strong>.</p></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="tab-uti" aria-labelledby="t-uti" hidden>
+        <div class="acc-imgs">
+          <!-- SLOT: uti -> public/img/uti.jpg (1400x900) -->
+          <figure class="imgshow">
+            <span class="imgshow-tag">UTI</span>
+            <img src="/img/uti.svg" alt="Unidade de Terapia Intensiva HSFA">
+            <figcaption class="imgshow-cap">
+              <b>UTI tradicional</b><span>Monitoramento contínuo de alta complexidade</span>
+            </figcaption>
+          </figure>
+          <!-- SLOT: centro-cirurgico -> public/img/centro-cirurgico.jpg (1400x900) -->
+          <figure class="imgshow">
+            <span class="imgshow-tag">Centro Cirúrgico</span>
+            <img src="/img/centro-cirurgico.svg" alt="Centro cirúrgico HSFA">
+            <figcaption class="imgshow-cap">
+              <b>Centro Cirúrgico</b><span>Tecnologia para procedimentos seguros</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="acc-grid">
+          <div class="rule"><span class="rule-tag">Visitas</span><p><strong>2 visitantes a partir das 11h</strong>, com duração de <strong>30 minutos</strong>.</p></div>
+          <div class="rule"><span class="rule-tag">Boletim médico</span><p>Informado às <strong>11h</strong>.</p></div>
+          <div class="rule warn"><span class="rule-tag warn">Intercorrências</span><p>As visitas poderão ser <strong>adiadas, retardadas ou suspensas</strong>. Os familiares serão prontamente comunicados.</p></div>
+          <div class="rule"><span class="rule-tag">Não é permitido entrar com</span>
+            <ul class="rule-list">
+              <li>Bolsas, sacolas, capacete, boné, chapéu</li><li>Celulares</li>
+              <li>Acessórios: pulseiras, colares, anéis, relógios</li><li>Chinelos ou bermudas</li>
+            </ul>
+          </div>
+          <div class="rule"><span class="rule-tag">Recomendação</span><p>Comparecer <strong>com máscara</strong> para a visita.</p></div>
+        </div>
+        <div class="callout danger">
+          <div class="callout-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div>
+            <h4>Prevenção a fraudes</h4>
+            <p>O hospital <strong>NÃO realiza ligações solicitando quantia em dinheiro</strong>. Todo acerto é feito pessoalmente na tesouraria. Em caso de dúvida, ligue para <strong>(62) 3221-8049</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="tab-uti-h" aria-labelledby="t-uti-h" hidden>
+        <div class="acc-imgs">
+          <!-- SLOT: uti-humanizada -> public/img/uti-humanizada.jpg (1400x900) -->
+          <figure class="imgshow">
+            <span class="imgshow-tag">UTI Humanizada</span>
+            <img src="/img/uti-humanizada.svg" alt="UTI humanizada do HSFA">
+            <figcaption class="imgshow-cap">
+              <b>UTI Humanizada</b><span>Primeira do gênero em Goiás — leito + poltrona</span>
+            </figcaption>
+          </figure>
+          <!-- SLOT: plantao24h -> public/img/plantao24h.jpg (1400x900) -->
+          <figure class="imgshow">
+            <span class="imgshow-tag">Plantão 24h</span>
+            <img src="/img/plantao24h.svg" alt="Pronto socorro HSFA">
+            <figcaption class="imgshow-cap">
+              <b>Plantão 24h</b><span>Pronto Socorro com atendimento ininterrupto</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="hum-card">
+          <div>
+            <h3>Conforto + cuidado intensivo</h3>
+            <p>Leito individualizado com <strong>TV</strong> e <strong>poltronas reclináveis</strong>, permitindo a permanência de <strong>1 acompanhante durante 24h</strong>, além do acompanhamento da equipe multidisciplinar.</p>
+            <p class="muted-note">Comodidade mediante pagamento de taxa. Informe-se na tesouraria.</p>
+          </div>
+          <ul class="hum-list">
+            <li><strong>Acompanhante:</strong> maior de 18 anos, com documento original com foto</li>
+            <li><strong>Visitante apartamento/enfermaria:</strong> maior de 12 anos</li>
+            <li><strong>Visitante UTI:</strong> maior de 16 anos</li>
+            <li><strong>Visita religiosa:</strong> 15h, duração de 15 min</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFERÊNCIAS -->
+  <section class="transfers section-light" aria-labelledby="transfers-title">
+    <div class="container two-col">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="transfer.chapter">Capítulo 03</span></span>
+        <h2 id="transfers-title" class="section-title" data-i18n="transfer.title">Transferências</h2>
+        <p data-i18n="transfer.text">As transferências de quarto podem ser solicitadas ao setor de internação e estão sujeitas à disponibilidade de leitos. Em caso de alta da UTI, o responsável deve procurar a UTI para receber o paciente e as orientações.</p>
+      </div>
+      <ol class="numbered-list">
+        <li><span>1</span><p><strong>Para outro hospital:</strong> acione a supervisora de enfermagem e solicite alta.</p></li>
+        <li><span>2</span><p>Contate a instituição que receberá o paciente.</p></li>
+        <li><span>3</span><p>Providencie ambulância, se necessário.</p></li>
+        <li><span>4</span><p>Quite despesas extras não cobertas pelo plano de saúde.</p></li>
+        <li><span>5</span><p>Assine os termos correspondentes.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CIRURGIA -->
+  <section class="surgery" id="cirurgia" aria-labelledby="cirurgia-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> <span data-i18n="surgery.chapter">Capítulo 04</span></span>
+      <h2 id="cirurgia-title" class="section-title center" data-i18n="surgery.title">Orientações para Cirurgia</h2>
+      <p class="section-sub center" data-i18n="surgery.sub">Alguns cuidados são essenciais para um melhor resultado do procedimento.</p>
+
+      <div class="surgery-grid">
+        <article class="s-card">
+          <div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v6a6 6 0 0 0 12 0V2"/><line x1="6" y1="2" x2="18" y2="2"/><path d="M12 14v8"/></svg></div>
+          <h3>Hábitos sociais</h3>
+          <p>O uso regular de bebidas alcoólicas pode aumentar o risco de complicações. Recomenda-se parar antes da cirurgia.</p>
+          <p>Se for <strong>fumante</strong>, deixe de fumar por pelo menos <strong>4 semanas</strong> antes da cirurgia — isso reduz riscos respiratórios.</p>
+          <p class="muted-note">Hospital Livre de Tabaco — proibido fumar nas dependências.</p>
+        </article>
+        <article class="s-card">
+          <div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5a2.5 2.5 0 1 1 5 0v8a2.5 2.5 0 0 1-5 0v-8z"/><path d="M9 11.5L7.5 4.5a3 3 0 0 1 5.97-.5L14 11.5"/></svg></div>
+          <h3>Antecedentes pessoais</h3>
+          <p>Informe ao médico:</p>
+          <ul>
+            <li>Marcapasso ou dispositivo cardíaco</li>
+            <li>Apneia do sono</li><li>Alergias</li>
+            <li>Problemas anteriores com anestesia</li>
+          </ul>
+        </article>
+        <article class="s-card">
+          <div class="s-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+          <h3>Preparo do corpo</h3>
+          <ul>
+            <li>Evite barbear ou depilar a área a ser operada</li>
+            <li>Durma cedo na véspera</li><li>Siga o jejum recomendado</li>
+            <li>Sem hidratante, perfume ou maquiagem no dia</li>
+            <li>Cabelos limpos e secos</li>
+            <li>Retire cílios, unhas e apliques postiços</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3 class="sub-title">Medicações domiciliares — informe sempre ao seu médico</h3>
+      <p class="section-sub">A suspensão deve ocorrer somente com anuência médica. Manter o uso indevido pode causar sangramento, hipoglicemia ou outros riscos.</p>
+
+      <div class="accordion">
+        <details>
+          <summary>
+            <span class="acc-cat">Coagulação</span>
+            <span class="acc-title">Medicamentos que alteram a coagulação</span>
+            <span class="acc-arrow" aria-hidden="true">+</span>
+          </summary>
+          <div class="acc-body">
+            <ul class="meds">
+              <li>Abciximab (Reopro)</li><li>Apixabana (Eliquis)</li><li>Betrixabana (Bevyxxa)</li>
+              <li>Cangrelor (Kengreal)</li><li>Cilostazol (Pletal)</li><li>Clopidogrel (Plavix)</li>
+              <li>Dabigatrana (Pradaxa)</li><li>Deltaparina (Fragmin)</li><li>Dipiridamol (Persantin)</li>
+              <li>Edoxabana (Lixiana, Savaysa)</li><li>Enoxaparina (Clexane)</li><li>Eptibatide (Integrilin)</li>
+              <li>Femprocumona (Marcoumar)</li><li>Fondaparinux (Arixtra)</li><li>Heparina não fracionada</li>
+              <li>Nadroparina (Fraxiparina)</li><li>Prasugrel (Efient)</li><li>Rivaroxabana (Xarelto)</li>
+              <li>Ticagrelor (Brilinta)</li><li>Ticlopidina (Ticlid)</li><li>Tinzarapina</li>
+              <li>Tirofiban (Aggrastat)</li><li>Varfarina (Marevan, Coumadin)</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary><span class="acc-cat">Regurgitação</span><span class="acc-title">Risco de regurgitação do conteúdo gástrico</span><span class="acc-arrow" aria-hidden="true">+</span></summary>
+          <div class="acc-body">
+            <ul class="meds">
+              <li>Dulaglutida (Trulicity)</li><li>Semaglutida (Ozempic)</li>
+              <li>Liraglutida (Saxenda, Victoza, Xultophy)</li>
+              <li>Empagliflozina (Jardiance)</li><li>Canagliflozina (Invokana)</li>
+              <li>Dapagliflozina (Forxiga)</li><li>Ertugliflozina</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary><span class="acc-cat">Diabetes</span><span class="acc-title">Risco de hipoglicemia perioperatória</span><span class="acc-arrow" aria-hidden="true">+</span></summary>
+          <div class="acc-body">
+            <ul class="meds">
+              <li>Insulina ação intermediária e longa (NPH, detemir, degludeca, glargina)</li>
+              <li>Insulina ação rápida e ultrarrápida</li>
+              <li>Secretagogos de insulina (sulfoniluréias e glinidas)</li>
+              <li>Metformina</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary><span class="acc-cat">Volemia</span><span class="acc-title">Risco de hipovolemia e bexigoma</span><span class="acc-arrow" aria-hidden="true">+</span></summary>
+          <div class="acc-body"><ul class="meds"><li>Diuréticos (furosemida)</li><li>Anti-hipertensivos</li></ul></div>
+        </details>
+        <details>
+          <summary><span class="acc-cat">Outros</span><span class="acc-title">Outros medicamentos que devem ser informados</span><span class="acc-arrow" aria-hidden="true">+</span></summary>
+          <div class="acc-body">
+            <ul class="meds">
+              <li>Fitoterápicos e suplementos vitamínicos</li>
+              <li>AINEs (anti-inflamatórios)</li>
+              <li>Medicamentos para perda de peso (Naltrexona, Sibutramina)</li>
+              <li>Estimulantes: Ritalina, Lisdexanfetamina (Venvanse), Modafinil (Stavigile)</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <h3 class="sub-title">O que devo levar ao hospital?</h3>
+      <div class="bring-grid">
+        <div class="bring-item"><span class="bring-ic" aria-hidden="true">🪪</span><h4>Documento com foto</h4><p>Original. Em caso de convênio, leve também a carteirinha.</p></div>
+        <div class="bring-item"><span class="bring-ic" aria-hidden="true">👕</span><h4>Pijama e roupa confortável</h4><p>Calçado fechado tipo tênis ou meia antiderrapante.</p></div>
+        <div class="bring-item"><span class="bring-ic" aria-hidden="true">💊</span><h4>Lista de medicações</h4><p>Nomes, dosagens e horários dos medicamentos de uso contínuo.</p></div>
+        <div class="bring-item"><span class="bring-ic" aria-hidden="true">📄</span><h4>Exames pré-operatórios</h4><p>Caso não tenham sido realizados aqui no hospital.</p></div>
+        <div class="bring-item warn-item"><span class="bring-ic" aria-hidden="true">⚠️</span><h4>Evite trazer</h4><p>Joias, relógios e objetos de valor.</p></div>
+        <div class="bring-item warn-item"><span class="bring-ic" aria-hidden="true">📵</span><h4>Centro Cirúrgico</h4><p>Sem celulares, óculos, lentes, próteses, brincos, piercings, apliques.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- ALTA HOSPITALAR -->
+  <section class="discharge section-light" aria-labelledby="discharge-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> <span data-i18n="discharge.chapter">Capítulo 05</span></span>
+      <h2 id="discharge-title" class="section-title center" data-i18n="discharge.title">Alta Hospitalar</h2>
+
+      <div class="timeline">
+        <div class="t-step">
+          <div class="t-dot"><span>1</span></div>
+          <div class="t-body">
+            <h4>Alta médica</h4>
+            <p>A alta geralmente ocorre até as <strong>12h</strong>. Você tem até 1 hora para organizar sua saída do quarto.</p>
+          </div>
+        </div>
+        <div class="t-step">
+          <div class="t-dot"><span>2</span></div>
+          <div class="t-body">
+            <h4>Diárias</h4>
+            <p>Encerram-se às 12h. Permanência após esse horário implica em <strong>cobrança de nova diária</strong> como particular.</p>
+          </div>
+        </div>
+        <div class="t-step">
+          <div class="t-dot"><span>3</span></div>
+          <div class="t-body">
+            <h4>Fechamento da conta</h4>
+            <p>Aguarde contato do setor de tesouraria para o fechamento da conta hospitalar.</p>
+          </div>
+        </div>
+        <div class="t-step">
+          <div class="t-dot"><span>4</span></div>
+          <div class="t-body">
+            <h4>Pagamento</h4>
+            <p>No caixa no térreo:<br><strong>Seg–Sex:</strong> 07h às 17h • <strong>Sábado:</strong> 08h às 12h<br>Outros horários: recepção do Pronto Socorro.</p>
+          </div>
+        </div>
+        <div class="t-step">
+          <div class="t-dot"><span>5</span></div>
+          <div class="t-body">
+            <h4>Exames</h4>
+            <p>Podem ser requisitados na <strong>recepção de exames</strong>. Resultados não disponíveis podem ser retirados posteriormente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <h4>Em caso de dúvida</h4>
+          <p>Acione a hotelaria pelo ramal <strong>8035</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTA HOSPITALAR -->
+  <section class="billing" aria-labelledby="billing-title">
+    <div class="container two-col">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="billing.chapter">Capítulo 06</span></span>
+        <h2 id="billing-title" class="section-title" data-i18n="billing.title">Conta Hospitalar</h2>
+        <p data-i18n="billing.text">As diárias de internação são contadas a partir da entrada do paciente e encerram-se ao meio-dia. É possível acompanhar diariamente os valores parciais de sua conta no setor de tesouraria.</p>
+      </div>
+
+      <div class="b-cards">
+        <div class="b-card">
+          <h4>💳 Pagamento</h4>
+          <p>Pagamentos parciais solicitados a cada <strong>3 dias</strong>. Saldo quitado no momento da alta.</p>
+          <p class="b-time">Caixa: <strong>08h às 18h</strong></p>
+        </div>
+        <div class="b-card">
+          <h4>🩺 Honorários médicos</h4>
+          <p>Pacientes <strong>particulares</strong> acertam os honorários médicos diretamente no setor de Tesouraria — <em>não incluídos</em> na conta hospitalar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPE MULTIDISCIPLINAR -->
+  <section class="team section-light" id="equipe" aria-labelledby="team-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> <span data-i18n="team.chapter">Capítulo 07</span></span>
+      <h2 id="team-title" class="section-title center" data-i18n="team.title">Equipe Multidisciplinar</h2>
+      <p class="section-sub center" data-i18n="team.sub">Profissionais especializados que cuidam de você em todas as fases do tratamento.</p>
+
+      <!-- SLOT: foto institucional do time -> public/img/equipe-foto.jpg (1400x900) -->
+      <figure class="imgshow" style="aspect-ratio:21/9; margin-bottom:40px" data-reveal>
+        <span class="imgshow-tag">Nosso time</span>
+        <img src="/img/equipe-foto.svg" alt="Equipe multidisciplinar do HSFA">
+        <figcaption class="imgshow-cap">
+          <b>Equipe HSFA</b><span>Profissionais altamente capacitados em todas as áreas</span>
+        </figcaption>
+      </figure>
+
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="team-avatar tone-1" aria-hidden="true">
+            <!-- SLOT: avatar enfermagem -> public/img/equipe-enfermagem.jpg (800x800) -->
+            <img src="/img/equipe-enfermagem.svg" alt="">
+            <span class="t-badge">EN</span>
+          </div>
+          <h3>Enfermagem</h3>
+          <p>Trabalha em constante interação com a equipe multidisciplinar, com avaliação diária e orientação aos pacientes e familiares sobre prevenção.</p>
+          <p class="ramal">Gerência: <strong>ramal 8050</strong></p>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar tone-2" aria-hidden="true">
+            <!-- SLOT: avatar fisioterapia -> public/img/equipe-fisioterapia.jpg (800x800) -->
+            <img src="/img/equipe-fisioterapia.svg" alt="">
+            <span class="t-badge">FI</span>
+          </div>
+          <h3>Fisioterapia</h3>
+          <p>Equipe própria e exclusiva — atende Internação e UTI. <strong>Não é permitido fisioterapeuta externo</strong>.</p>
+          <ul class="mini-list">
+            <li>UTI: <strong>3 atendimentos/dia</strong></li>
+            <li>Internação: <strong>1 atendimento/dia</strong></li>
+            <li>Extras: particulares</li>
+          </ul>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar tone-3" aria-hidden="true">
+            <!-- SLOT: avatar terapia ocupacional -> public/img/equipe-to.jpg (800x800) -->
+            <img src="/img/equipe-to.svg" alt="">
+            <span class="t-badge">TO</span>
+          </div>
+          <h3>Terapia Ocupacional</h3>
+          <p>Oferecida conforme demanda do paciente. A avaliação e solicitação são realizadas pela equipe multidisciplinar.</p>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar tone-4" aria-hidden="true">
+            <!-- SLOT: avatar odontologia -> public/img/equipe-odonto.jpg (800x800) -->
+            <img src="/img/equipe-odonto.svg" alt="">
+            <span class="t-badge">OD</span>
+          </div>
+          <h3>Odontologia Hospitalar</h3>
+          <p>Atendimento em todos os setores, de <strong>segunda a sábado</strong>. Em UTI, primeiro atendimento para avaliação bucal.</p>
+          <p class="muted-note">Atendimento particular. Emitimos relatório para reembolso.</p>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar tone-5" aria-hidden="true">
+            <!-- SLOT: avatar servico social -> public/img/equipe-servicosocial.jpg (800x800) -->
+            <img src="/img/equipe-servicosocial.svg" alt="">
+            <span class="t-badge">SS</span>
+          </div>
+          <h3>Serviço Social</h3>
+          <p>Fortalece vínculos entre paciente, família e equipe — garantindo direitos e oferecendo atendimento humanizado.</p>
+          <ul class="mini-list">
+            <li>Orientação a benefícios sociais</li>
+            <li>Acompanhamento em urgência</li>
+            <li>Tele visitas</li>
+          </ul>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar tone-6" aria-hidden="true">
+            <!-- SLOT: avatar farmacia -> public/img/equipe-farmacia.jpg (800x800) -->
+            <img src="/img/equipe-farmacia.svg" alt="">
+            <span class="t-badge">FA</span>
+          </div>
+          <h3>Farmácia Clínica</h3>
+          <p>Farmacêuticos analisam prescrições para evitar interações e otimizar o tratamento.</p>
+          <p class="muted-note">Informe ao médico todos os medicamentos que você usa em casa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- ALIMENTAÇÃO -->
+  <section class="meals" id="alimentacao" aria-labelledby="meals-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> <span data-i18n="meals.chapter">Capítulo 08</span></span>
+      <h2 id="meals-title" class="section-title center" data-i18n="meals.title">Nutrição e Alimentação</h2>
+      <p class="section-sub center" data-i18n="meals.sub">Refeições elaboradas pela equipe de nutricionistas conforme prescrição médica, com dieta balanceada.</p>
+
+      <div class="meals-table" role="table" aria-label="Refeições, horários e valores">
+        <div class="meal-head" role="row">
+          <span role="columnheader" data-i18n="meals.col.meal">Refeição</span>
+          <span role="columnheader" data-i18n="meals.col.time">Horário</span>
+          <span role="columnheader" data-i18n="meals.col.price">Valor</span>
+        </div>
+        <div class="meal-row" role="row">
+          <span role="cell"><span class="meal-ic">☕</span> <span data-i18n="meals.row.breakfast">Café da Manhã</span></span>
+          <span role="cell">07h00 às 08h00</span>
+          <span role="cell" class="price">R$ 7,00</span>
+        </div>
+        <div class="meal-row" role="row">
+          <span role="cell"><span class="meal-ic">🍽️</span> <span data-i18n="meals.row.lunch">Almoço</span></span>
+          <span role="cell">11h00 às 12h30</span>
+          <span role="cell" class="price">R$ 15,00</span>
+        </div>
+        <div class="meal-row" role="row">
+          <span role="cell"><span class="meal-ic">🍪</span> <span data-i18n="meals.row.snack">Lanche da Tarde</span></span>
+          <span role="cell">15h00 às 15h30</span>
+          <span role="cell" class="price">R$ 7,00</span>
+        </div>
+        <div class="meal-row" role="row">
+          <span role="cell"><span class="meal-ic">🍲</span> <span data-i18n="meals.row.dinner">Jantar</span></span>
+          <span role="cell">17h00 às 18h00</span>
+          <span role="cell" class="price">R$ 10,00</span>
+        </div>
+        <div class="meal-row" role="row">
+          <span role="cell"><span class="meal-ic">🌙</span> <span data-i18n="meals.row.supper">Ceia</span></span>
+          <span role="cell">21h00 às 22h00</span>
+          <span role="cell" class="price">R$ 7,00</span>
+        </div>
+      </div>
+
+      <div class="meal-info">
+        <article><h4>📋 Restrições alimentares</h4><p>Comunique a enfermagem para que a equipe de nutrição seja acionada.</p></article>
+        <article><h4>👨‍👩‍👧 Acompanhantes</h4><p>Solicite refeições à nutrição com antecedência, mediante pagamento. Refeitório no <strong>subsolo</strong>.</p></article>
+        <article><h4>🚫 Alimentos externos</h4><p>Não é permitida a entrada de alimentos no hospital, nem de entregadores.</p></article>
+        <article><h4>🍴 Refeitório</h4><p>Refeições trazidas de fora devem ser consumidas <strong>exclusivamente no refeitório</strong>.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHADOS E FRAUDES -->
+  <section class="findings section-light" aria-labelledby="findings-title">
+    <div class="container two-col">
+      <div class="finding-card">
+        <h3>🔍 Achados e Perdidos</h3>
+        <p>Objetos esquecidos após a alta são guardados pela equipe de hotelaria por <strong>30 dias</strong>. Após esse prazo, são descartados ou doados.</p>
+        <p>Encontrou algo? Encaminhe à equipe de hotelaria.</p>
+      </div>
+      <div class="finding-card danger">
+        <h3>🛡️ Prevenção a fraudes</h3>
+        <p>O HSFA <strong>não faz ligações</strong> para tratar de pagamentos. Todo acerto é pessoal, na tesouraria ou no caixa.</p>
+        <p>Recebeu alguma ligação suspeita? Ligue para a tesouraria: <strong>(62) 3221-8049</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGURANÇA -->
+  <section class="safety" id="seguranca" aria-labelledby="safety-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> <span data-i18n="safety.chapter">Capítulo 09</span></span>
+      <h2 id="safety-title" class="section-title center" data-i18n="safety.title">Controle de Infecção (SCCIH)</h2>
+      <p class="section-sub center" data-i18n="safety.sub">A prevenção de infecções e a segurança do paciente dependem da colaboração de todos.</p>
+
+      <div class="rules-grid">
+        <div class="r-do">
+          <h3 data-i18n="safety.do">✅ Faça</h3>
+          <ul>
+            <li>Higienize as mãos com água e sabão ou álcool ao entrar e sair das unidades</li>
+            <li>Higienize objetos que caírem no chão antes de devolver ao paciente</li>
+            <li>Restrinja a visita ao seu familiar — evite contato com outros pacientes</li>
+            <li>Use trajes apropriados nas áreas comuns</li>
+            <li>Em caso de dúvida, converse com o médico ou enfermeiro</li>
+          </ul>
+        </div>
+        <div class="r-dont">
+          <h3 data-i18n="safety.dont">❌ Não faça</h3>
+          <ul>
+            <li>Não sente nas camas dos pacientes ou nos leitos vagos</li>
+            <li>Não coloque bolsas e sacolas sobre as camas</li>
+            <li>Não manuseie cateteres, sondas, curativos e equipamentos</li>
+            <li>Não compartilhe objetos de uso pessoal</li>
+            <li>Não traga flores, travesseiros, ventilador, eletrônicos, secador, comidas</li>
+            <li>Não visite se estiver resfriado ou com doença contagiosa</li>
+            <li>Não registre imagens (fotos, vídeos, áudios)</li>
+            <li>Não fume nas dependências do hospital</li>
+            <li>Não use celular em enfermaria ou UTI</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-title center mt-xl" data-i18n="safety.goals.title">6 Metas Internacionais de Segurança do Paciente</h3>
+      <p class="section-sub center" data-i18n="safety.goals.sub">Implementadas conforme orientações da OMS para oferecer um ambiente cada vez mais seguro.</p>
+
+      <div class="metas-grid">
+        <article class="meta"><div class="meta-num">01</div><h4>Identificação correta do paciente</h4><p>Pulseira com dois identificadores oficiais: <strong>nome completo</strong> e <strong>data de nascimento</strong>, conferidos antes de cada ação assistencial.</p></article>
+        <article class="meta"><div class="meta-num">02</div><h4>Comunicação efetiva</h4><p>Padronização clara de como, por quem e para quem as informações são transmitidas — sem ambiguidades.</p></article>
+        <article class="meta"><div class="meta-num">03</div><h4>Segurança na medicação</h4><p>Pergunte sempre qual medicamento e para que serve. Medicamentos trazidos de casa devem ser apresentados ao médico.</p></article>
+        <article class="meta"><div class="meta-num">04</div><h4>Cirurgia segura</h4><p>Assinatura de dois termos de consentimento (procedimento e anestesia). Demarcação na pele <strong>apenas pelo cirurgião</strong>. Checklist cirúrgico em todas as fases.</p></article>
+        <article class="meta"><div class="meta-num">05</div><h4>Higiene das mãos</h4><p>Higienize sempre as mãos. Observe se a equipe faz o mesmo antes e depois dos cuidados. Lembre amigos e familiares dessa prática.</p></article>
+        <article class="meta"><div class="meta-num">06</div><h4>Quedas e lesões por pressão</h4><p>Protocolo de queda implementado para identificar riscos e agir preventivamente. Siga as recomendações da enfermagem.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIREITOS E DEVERES -->
+  <section class="rights section-light" id="direitos" aria-labelledby="rights-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> <span data-i18n="rights.chapter">Capítulo 10</span></span>
+      <h2 id="rights-title" class="section-title center" data-i18n="rights.title">Direitos e Deveres</h2>
+      <p class="section-sub center" data-i18n="rights.sub">Conheça os direitos garantidos a você e à sua família — e os deveres que ajudam a tornar o cuidado mais seguro e eficaz.</p>
+
+      <div class="rights-tabs">
+        <button class="rt is-active" data-target="rights-list" aria-controls="rights-list">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          <span data-i18n="rights.tab.rights">Direitos (20)</span>
+        </button>
+        <button class="rt" data-target="duties-list" aria-controls="duties-list">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+          <span data-i18n="rights.tab.duties">Deveres (11)</span>
+        </button>
+      </div>
+
+      <ol class="rights-list" id="rights-list">
+        <li><b>01</b><p>Atendimento digno, atencioso e respeitoso, <strong>sem discriminação</strong> de qualquer natureza.</p></li>
+        <li><b>02</b><p>Ser identificado e tratado pelo <strong>nome e sobrenome</strong>.</p></li>
+        <li><b>03</b><p>Identificar o profissional por <strong>crachá visível</strong>, com fotografia, nome e setor.</p></li>
+        <li><b>04</b><p>Receber informações claras sobre diagnóstico, tratamento, anestesia, riscos e duração esperada.</p></li>
+        <li><b>05</b><p>Consentir ou recusar livremente quando o tratamento for experimental.</p></li>
+        <li><b>06</b><p>Receber auxílio do profissional adequado para melhoria do conforto e bem-estar.</p></li>
+        <li><b>07</b><p>Exigir o cumprimento das normas de <strong>prevenção e controle de infecção</strong>.</p></li>
+        <li><b>08</b><p>Ter prontuário legível e completo.</p></li>
+        <li><b>09</b><p>Privacidade, individualidade e integridade física asseguradas, com confidencialidade.</p></li>
+        <li><b>10</b><p>Receber informações sobre <strong>medicamentos administrados</strong>.</p></li>
+        <li><b>11</b><p>Informações sobre procedência de sangue e hemoderivados.</p></li>
+        <li><b>12</b><p>Ser orientado sobre como conduzir o tratamento após a alta, por escrito.</p></li>
+        <li><b>13</b><p>Revogar ou recusar procedimentos médicos, desde que não haja risco de morte.</p></li>
+        <li><b>14</b><p>Gestantes, idosos, crianças e adolescentes têm <strong>prioridade de atendimento</strong>.</p></li>
+        <li><b>15</b><p>Em caso de menor ou incapacidade, consentimento pode ser dado por representante legal.</p></li>
+        <li><b>16</b><p>Acesso à tabela de preços dos serviços e às contas detalhadas do tratamento.</p></li>
+        <li><b>17</b><p>Livre acesso a procedimentos diagnósticos e terapêuticos disponíveis.</p></li>
+        <li><b>18</b><p>Indicar familiar para tomar decisões, inclusive sobre prolongamento da vida.</p></li>
+        <li><b>19</b><p>Adolescente: ser atendido sem acompanhante, se desejar.</p></li>
+        <li><b>20</b><p>Ser informado sobre todos os direitos e canais de comunicação.</p></li>
+      </ol>
+
+      <ol class="rights-list" id="duties-list" hidden>
+        <li><b>01</b><p>Fornecer informações <strong>precisas e completas</strong> sobre histórico de saúde, alergias e medicações.</p></li>
+        <li><b>02</b><p>Utilizar apenas as medicações prescritas pelo hospital, salvo autorização médica.</p></li>
+        <li><b>03</b><p>Expressar compreensão das informações — fazer perguntas quando tiver dúvidas.</p></li>
+        <li><b>04</b><p>Informar à equipe sobre qualquer fato relacionado à sua condição de saúde.</p></li>
+        <li><b>05</b><p>Assumir responsabilidade por recusa de procedimentos ou descumprimento de orientações.</p></li>
+        <li><b>06</b><p>Indicar familiar para decidir em seu nome, caso esteja impossibilitado.</p></li>
+        <li><b>07</b><p>Ter em mãos seus documentos e resultados de exames quando solicitados.</p></li>
+        <li><b>08</b><p>Honrar o compromisso financeiro com o hospital.</p></li>
+        <li><b>09</b><p>Providenciar documentos para autorização do convênio.</p></li>
+        <li><b>10</b><p>Zelar para que visitantes respeitem as proibições do hospital.</p></li>
+        <li><b>11</b><p>Agir com urbanidade, cortesia e discrição.</p></li>
+      </ol>
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <span class="eyebrow center"><span class="dot"></span> FAQ</span>
+      <h2 id="faq-title" class="section-title center" data-i18n="faq.title">Dúvidas frequentes</h2>
+      <p class="section-sub center" data-i18n="faq.sub">Toque em uma pergunta para ver a resposta. Não encontrou o que procurava? Fale com a Ouvidoria.</p>
+
+      <div class="faq-search">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="faq-search-input" placeholder="Buscar uma dúvida..." aria-label="Buscar nas perguntas frequentes" data-i18n-attr="placeholder|faq.placeholder">
+      </div>
+
+      <div id="faq-container" class="faq-container">
+        <!-- Renderizado por JS -->
+      </div>
+
+      <p id="faq-no-results" class="faq-no-results" hidden data-i18n="faq.no_results">Nenhuma pergunta encontrada. Tente outras palavras-chave.</p>
+    </div>
+  </section>
+
+  <!-- OUVIDORIA / FORMULÁRIO -->
+  <section class="feedback" aria-labelledby="feedback-title">
+    <div class="container feedback-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="feedback.chapter">Capítulo 11</span></span>
+        <h2 id="feedback-title" class="section-title">
+          <span data-i18n="feedback.title.part1">Sua opinião</span><br>
+          <span class="hl" data-i18n="feedback.title.highlight">é muito importante</span>
+        </h2>
+        <p data-i18n="feedback.p1">Acreditamos que todas as manifestações dos nossos clientes são oportunidades para o crescimento contínuo e a evolução dos nossos processos.</p>
+        <p data-i18n="feedback.p2">Use o formulário ao lado para enviar uma sugestão, elogio ou reclamação. Sua mensagem será encaminhada à Ouvidoria do HSFA.</p>
+
+        <div class="quote">
+          <span class="q-mark" aria-hidden="true">&ldquo;</span>
+          <p>Nosso maior presente é cuidar de você e da sua família.</p>
+          <span class="q-author">— HSFA</span>
+        </div>
+      </div>
+
+      <form class="ouvidoria-form" id="ouvidoria-form" novalidate>
+        <h3 data-i18n="feedback.form.title">Fale com a Ouvidoria</h3>
+
+        <div class="form-group">
+          <label for="o-name" data-i18n="feedback.form.name">Nome completo</label>
+          <input type="text" id="o-name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="o-email" data-i18n="feedback.form.email">E-mail</label>
+            <input type="email" id="o-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="o-phone" data-i18n="feedback.form.phone">Telefone (opcional)</label>
+            <input type="tel" id="o-phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="o-type" data-i18n="feedback.form.type">Tipo de manifestação</label>
+            <select id="o-type" name="type" required>
+              <option value="elogio" data-i18n="feedback.form.type.praise">Elogio</option>
+              <option value="sugestao" data-i18n="feedback.form.type.suggestion">Sugestão</option>
+              <option value="reclamacao" data-i18n="feedback.form.type.complaint">Reclamação</option>
+              <option value="duvida" data-i18n="feedback.form.type.doubt">Dúvida</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="o-sector" data-i18n="feedback.form.sector">Setor (se aplicável)</label>
+            <input type="text" id="o-sector" name="sector" placeholder="Ex.: UTI, Pronto Socorro..." data-i18n-attr="placeholder|feedback.form.sector.placeholder">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="o-message" data-i18n="feedback.form.message">Sua mensagem</label>
+          <textarea id="o-message" name="message" rows="5" required placeholder="Conte-nos como podemos melhorar..." data-i18n-attr="placeholder|feedback.form.message.placeholder"></textarea>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="o-privacy" name="privacy" required>
+          <label for="o-privacy" data-i18n="feedback.form.privacy">Concordo com o tratamento dos meus dados conforme a LGPD para fins de retorno da manifestação.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit" id="o-submit">
+          <span class="submit-label" data-i18n="feedback.form.submit">Enviar manifestação</span>
+          <span class="submit-spinner" aria-hidden="true"></span>
+        </button>
+
+        <div class="form-feedback" id="o-feedback" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="f-brand">
+          <div class="brand-mark big" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56">
+              <rect x="6" y="6" width="52" height="52" rx="10" fill="var(--c-teal)"/>
+              <path d="M20 18h6v12h12V18h6v28h-6V36H26v10h-6V18z" fill="#fff"/>
+            </svg>
+          </div>
+          <h3>Hospital São Francisco de Assis</h3>
+          <p class="slogan" data-i18n="footer.slogan">Plantão 24h • Acreditado ONA • Qualificado UNIMED</p>
+        </div>
+
+        <div class="f-col">
+          <h4 data-i18n="footer.contact">Contato</h4>
+          <ul>
+            <li><strong>Central:</strong> (62) 3221-8000</li>
+            <li><strong>Tesouraria:</strong> (62) 3221-8049</li>
+            <li><strong>Hotelaria:</strong> ramal 8035</li>
+            <li><strong>Enfermagem:</strong> ramal 8050</li>
+          </ul>
+        </div>
+
+        <div class="f-col">
+          <h4 data-i18n="footer.address">Endereço</h4>
+          <p>R. 9-A, 110 — Setor Aeroporto<br>Goiânia – GO • 74075-250</p>
+          <p><a href="https://www.hsfasaude.com.br" target="_blank" rel="noopener">www.hsfasaude.com.br</a></p>
+          <p class="social">@hospitalsaofranciscodeassis</p>
+        </div>
+
+        <div class="f-col">
+          <h4 data-i18n="footer.quick">Navegação rápida</h4>
+          <ul class="quick">
+            <li><a href="#bem-vindo" data-i18n="nav.welcome">Seja bem-vindo</a></li>
+            <li><a href="#internacao" data-i18n="nav.admission">Internação</a></li>
+            <li><a href="#acomodacoes" data-i18n="nav.accommodations">Acomodações</a></li>
+            <li><a href="#cirurgia" data-i18n="nav.surgery">Cirurgia</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#direitos" data-i18n="nav.rights">Direitos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <p data-i18n="footer.copy">© 2026 Hospital São Francisco de Assis. Guia do Paciente — versão digital.</p>
+        <p class="muted" data-i18n="footer.note">Conteúdo institucional baseado no Guia do Paciente 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO VOLTAR AO TOPO -->
+  <a href="#topo" class="back-to-top" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </a>
+
+  <!-- CHATBOT FAB -->
+  <button class="chat-fab" id="chat-fab" aria-label="Abrir assistente virtual">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ic-open"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ic-close"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <span class="chat-fab-pulse" aria-hidden="true"></span>
+  </button>
+
+  <!-- CHATBOT PANEL -->
+  <div class="chat-panel" id="chat-panel" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M3 21v-1a7 7 0 0 1 14 0v1"/></svg>
+      </div>
+      <div class="chat-title">
+        <strong data-i18n="faq.bot.title">Posso te ajudar?</strong>
+        <span data-i18n="faq.bot.subtitle">Tire dúvidas sobre o hospital</span>
+      </div>
+      <button class="chat-close" aria-label="Fechar chat">✕</button>
+    </div>
+
+    <div class="chat-body" id="chat-body" role="log" aria-live="polite"></div>
+
+    <div class="chat-input">
+      <input type="text" id="chat-input-field" placeholder="Digite sua dúvida..." aria-label="Mensagem" data-i18n-attr="placeholder|faq.bot.input">
+      <button id="chat-send" aria-label="Enviar">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- INSTALL PROMPT PWA -->
+  <div class="install-prompt" id="install-prompt" hidden>
+    <div class="install-icon" aria-hidden="true">
+      <img src="assets/img/icon-192.png" alt="" width="48" height="48">
+    </div>
+    <div class="install-text">
+      <strong data-i18n="pwa.install">Instalar app</strong>
+      <p data-i18n="pwa.install.text">Instale o Guia do Paciente HSFA no seu celular para acesso offline.</p>
+    </div>
+    <div class="install-actions">
+      <button class="btn btn-ghost btn-sm" id="install-dismiss" data-i18n="pwa.install.dismiss">Agora não</button>
+      <button class="btn btn-primary btn-sm" id="install-btn" data-i18n="pwa.install.btn">Instalar</button>
+    </div>
+  </div>
+
+  <!-- Scripts e estilos vem por /src/main.js no <head> (Vite) -->
+</body>
+</html>

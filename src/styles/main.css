@@ -1,0 +1,539 @@
+/* =========================================================
+   GUIA DO PACIENTE - HSFA - main.css
+   Camada futurista por cima do tema base. Importa o legacy
+   (paleta + tipografia + componentes herdados) e adiciona
+   efeitos modernos: aurora, glass, glow, reveal, particles.
+   ========================================================= */
+
+@import './legacy.css';
+
+/* ---------- TOKENS EXTRA ---------- */
+:root{
+  --c-aurora-1: #01717B;
+  --c-aurora-2: #2A9D9E;
+  --c-aurora-3: #6FE3D5;
+  --c-aurora-4: #023a40;
+  --c-night:    #03252A;
+  --c-night-2:  #0D2C30;
+  --c-glow:     0 0 0 1px rgba(42,157,158,.35), 0 12px 40px rgba(1,113,123,.18);
+  --c-glow-soft:0 0 0 1px rgba(255,255,255,.06), 0 24px 60px rgba(0,0,0,.35);
+  --grid-color: rgba(1,113,123,.07);
+  --radius-xl:  28px;
+  --easing:     cubic-bezier(.4,0,.2,1);
+}
+
+/* ---------- BACKGROUND GLOBAL ---------- */
+body{
+  background:
+    radial-gradient(1200px 700px at 8% -10%, rgba(42,157,158,.10), transparent 60%),
+    radial-gradient(900px 600px at 100% 5%,  rgba(111,227,213,.07), transparent 60%),
+    radial-gradient(1000px 600px at 50% 100%,rgba(1,113,123,.06),   transparent 60%),
+    #ffffff;
+  position:relative;
+}
+body::before{
+  content:'';
+  position:fixed; inset:0;
+  background:
+    linear-gradient(var(--grid-color) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px) 0 0 / 48px 48px;
+  pointer-events:none;
+  z-index:0;
+  opacity:.35;
+  mask-image: radial-gradient(circle at 50% 30%, #000 30%, transparent 80%);
+}
+main, section, header, footer{position:relative; z-index:1}
+
+/* ---------- TYPOGRAPHY UPGRADE ---------- */
+h1, h2{ letter-spacing:-.02em; }
+.hl{
+  background:linear-gradient(120deg, var(--c-aurora-2), var(--c-aurora-3) 40%, var(--c-aurora-2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  display:inline-block;
+}
+
+/* ---------- SCROLLBAR ---------- */
+*::-webkit-scrollbar{width:10px; height:10px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg, var(--c-aurora-2), var(--c-aurora-1));
+  border-radius:10px;
+}
+
+/* ---------- HEADER GLASS ---------- */
+.site-header{
+  background:rgba(255,255,255,.7);
+  backdrop-filter:saturate(180%) blur(18px);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);
+  border-bottom:1px solid rgba(1,113,123,.10);
+}
+.brand{ display:inline-flex; align-items:center; }
+.brand-logo{
+  height:50px;
+  width:auto;
+  display:block;
+  filter:drop-shadow(0 4px 14px rgba(1,113,123,.18));
+  transition:transform .3s var(--easing);
+}
+.brand-logo:hover{ transform:translateY(-1px) scale(1.02); }
+@media (max-width:680px){
+  .brand-logo{ height:40px; }
+}
+
+/* selo ONA com leve glow ambar */
+.hero-selo{
+  background:#fff;
+  box-shadow:
+    0 18px 50px rgba(1,73,81,.22),
+    0 0 0 6px rgba(255,255,255,.6),
+    0 0 30px rgba(241,193,67,.35);
+}
+
+/* ---------- HERO REBUILD ---------- */
+.hero{
+  padding:100px 0 140px;
+  background:
+    radial-gradient(1200px 700px at 80% 10%, rgba(111,227,213,.20), transparent 60%),
+    radial-gradient(900px 600px at 0% 50%, rgba(1,113,123,.18), transparent 60%),
+    linear-gradient(180deg, #F4FBFC 0%, #FFFFFF 70%);
+}
+.hero-bg{
+  position:absolute; inset:0;
+  pointer-events:none; overflow:hidden;
+}
+.hero-bg::before,
+.hero-bg::after{
+  content:'';
+  position:absolute;
+  width:520px; height:520px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.55;
+  animation:driftA 18s ease-in-out infinite alternate;
+}
+.hero-bg::before{
+  top:-160px; left:-120px;
+  background:radial-gradient(circle, var(--c-aurora-2), transparent 60%);
+}
+.hero-bg::after{
+  bottom:-200px; right:-120px;
+  background:radial-gradient(circle, var(--c-aurora-3), transparent 60%);
+  animation-direction:alternate-reverse;
+}
+@keyframes driftA{
+  0%   { transform:translate(0,0)         scale(1); }
+  100% { transform:translate(60px,40px)   scale(1.15); }
+}
+
+.hero-copy h1{ font-size:clamp(2.6rem, 5.4vw, 4.6rem); }
+.hero-copy h1 .year{
+  background:linear-gradient(120deg, var(--c-aurora-2), var(--c-aurora-3));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.lead{ font-size:1.2rem; }
+
+/* CTA com glow */
+.btn-primary{
+  background:linear-gradient(135deg, var(--c-aurora-1), var(--c-aurora-2));
+  box-shadow:0 6px 20px rgba(1,113,123,.32), inset 0 1px 0 rgba(255,255,255,.18);
+}
+.btn-primary:hover{
+  background:linear-gradient(135deg, var(--c-aurora-2), var(--c-aurora-1));
+  box-shadow:0 14px 36px rgba(1,113,123,.45), inset 0 1px 0 rgba(255,255,255,.25);
+  transform:translateY(-3px);
+}
+.btn-ghost{
+  border-color:rgba(1,113,123,.35);
+  color:var(--c-teal-dark);
+  background:rgba(255,255,255,.5);
+  backdrop-filter:blur(10px);
+}
+.btn-ghost:hover{
+  background:rgba(1,113,123,.06);
+  color:var(--c-teal-dark);
+  border-color:var(--c-teal);
+}
+
+/* Hero stats: chip style */
+.hero-stats{
+  border-top:1px dashed rgba(1,113,123,.18);
+  padding-top:1.6rem;
+}
+.hero-stats li{
+  padding:14px 18px;
+  border-radius:14px;
+  background:rgba(255,255,255,.6);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(1,113,123,.08);
+  transition:.3s var(--easing);
+}
+.hero-stats li:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--c-glow);
+  border-color:rgba(42,157,158,.35);
+}
+
+/* Hero-art: card maior, glass, com slot de imagem visivel */
+.hero-art{
+  position:relative;
+  perspective:1200px;
+}
+.hero-card{
+  width:100%;
+  max-width:480px;
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  box-shadow:
+    0 30px 80px rgba(1,73,81,.30),
+    0 0 0 1px rgba(255,255,255,.5) inset;
+  transform:rotate(-2deg) rotateY(-4deg);
+  position:relative;
+  background:#fff;
+}
+.hero-card::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(1,73,81,.55));
+  pointer-events:none;
+}
+.hero-card img{
+  aspect-ratio:3/4;
+  object-fit:cover;
+  width:100%;
+  display:block;
+}
+
+/* badge ONA flutuante */
+.hero-badge{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(1,113,123,.10);
+  box-shadow:0 24px 60px rgba(1,73,81,.18);
+}
+
+/* Tag flutuante extra (ex: selo ONA) */
+.hero-selo{
+  position:absolute;
+  top:30px; right:-20px;
+  width:120px; height:120px;
+  border-radius:50%;
+  background:#fff;
+  padding:8px;
+  box-shadow:0 18px 50px rgba(1,73,81,.22);
+  animation:floatY 8s ease-in-out infinite;
+  z-index:3;
+}
+.hero-selo img{width:100%; height:100%; border-radius:50%; object-fit:cover}
+@media (max-width:880px){
+  .hero-selo{ width:96px; height:96px; right:0; top:10px; }
+}
+
+/* ---------- SECTION TITLES ANIMADOS ---------- */
+.section-title{ position:relative; }
+.section-title.center::after{
+  content:'';
+  display:block;
+  width:64px; height:3px; margin:14px auto 0;
+  background:linear-gradient(90deg, var(--c-aurora-2), var(--c-aurora-3));
+  border-radius:3px;
+}
+
+/* ---------- IMAGE SHOWCASE (slot reutilizavel) ---------- */
+.imgshow{
+  position:relative;
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  isolation:isolate;
+  box-shadow:0 30px 70px rgba(1,73,81,.18);
+  border:1px solid rgba(1,113,123,.08);
+  background:#fff;
+}
+.imgshow img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .8s var(--easing);
+}
+.imgshow:hover img{ transform:scale(1.04); }
+.imgshow::after{
+  content:'';
+  position:absolute; inset:auto 0 0 0; height:55%;
+  background:linear-gradient(180deg, transparent, rgba(3,37,42,.85));
+  pointer-events:none;
+}
+.imgshow-cap{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:22px 26px;
+  color:#fff;
+  z-index:2;
+  display:flex; align-items:center; gap:14px;
+}
+.imgshow-cap b{
+  font-family:var(--f-display);
+  font-size:1.15rem; font-weight:800;
+  display:block;
+  letter-spacing:-.01em;
+}
+.imgshow-cap span{ font-size:.85rem; opacity:.85; }
+.imgshow-tag{
+  position:absolute; top:18px; left:18px;
+  z-index:2;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  backdrop-filter:blur(10px);
+  color:#fff;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+/* ---------- SECTION DARK (acomodacoes, UTI etc.) ---------- */
+.section-dark{
+  background:
+    radial-gradient(800px 500px at 90% 0%, rgba(42,157,158,.22), transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, rgba(1,113,123,.35), transparent 60%),
+    linear-gradient(180deg, var(--c-night) 0%, var(--c-night-2) 100%);
+  color:#E2EAEC;
+  padding:100px 0;
+  position:relative;
+  overflow:hidden;
+}
+.section-dark h2,
+.section-dark h3,
+.section-dark h4{ color:#fff; }
+.section-dark .section-sub,
+.section-dark p{ color:#A8C5C9; }
+.section-dark strong{ color:#fff; }
+.section-dark .eyebrow{ color:var(--c-aurora-3); }
+.section-dark .section-title.center::after{
+  background:linear-gradient(90deg, var(--c-aurora-3), #fff);
+}
+
+/* ---------- GLASS CARDS ---------- */
+.glass{
+  background:rgba(255,255,255,.62);
+  backdrop-filter:saturate(160%) blur(14px);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+  border:1px solid rgba(1,113,123,.10);
+  border-radius:var(--radius);
+  box-shadow:0 8px 32px rgba(1,73,81,.08);
+}
+.section-dark .glass{
+  background:rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.10);
+  box-shadow:0 8px 32px rgba(0,0,0,.30);
+}
+
+/* ---------- MVV cards futuristas ---------- */
+.mvv-card{
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(1,113,123,.08);
+  position:relative;
+}
+.mvv-card::before{
+  height:2px;
+  background:linear-gradient(90deg, var(--c-aurora-2), var(--c-aurora-3));
+}
+.mvv-card:hover{
+  box-shadow:var(--c-glow);
+  border-color:rgba(42,157,158,.3);
+}
+.mvv-icon{
+  background:linear-gradient(135deg, rgba(42,157,158,.12), rgba(111,227,213,.18));
+  box-shadow:inset 0 0 0 1px rgba(42,157,158,.15);
+}
+
+/* ---------- INFO CARDS, CHECKLIST, RULES (glow on hover) ---------- */
+.info-card,
+.checklist-card,
+.rule,
+.s-card,
+.b-card,
+.meta,
+.finding-card,
+.team-card,
+.bring-item{
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(1,113,123,.08);
+  border-radius:var(--radius);
+  transition:.3s var(--easing);
+  position:relative;
+  overflow:hidden;
+}
+.info-card:hover,
+.checklist-card:hover,
+.rule:hover,
+.s-card:hover,
+.b-card:hover,
+.meta:hover,
+.finding-card:hover,
+.team-card:hover,
+.bring-item:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--c-glow);
+  border-color:rgba(42,157,158,.32);
+}
+
+/* ---------- METAS - numero gigante de fundo ---------- */
+.meta{ overflow:hidden; }
+.meta-num{
+  font-family:var(--f-display);
+  font-size:5rem;
+  font-weight:800;
+  background:linear-gradient(180deg, rgba(42,157,158,.22), rgba(42,157,158,0));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  line-height:1; margin-bottom:8px;
+}
+
+/* ---------- TABS (acomodacoes / direitos) ---------- */
+.tab,
+.rt{
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(1,113,123,.12);
+  border-radius:14px;
+  padding:12px 18px;
+  font-weight:600;
+  color:var(--c-text-muted);
+  transition:.25s var(--easing);
+  backdrop-filter:blur(8px);
+}
+.tab.is-active,
+.rt.is-active{
+  background:linear-gradient(135deg, var(--c-aurora-1), var(--c-aurora-2));
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 10px 26px rgba(1,113,123,.30);
+}
+
+/* ---------- TIMELINE ALTA ---------- */
+.t-dot{
+  background:linear-gradient(135deg, var(--c-aurora-1), var(--c-aurora-2));
+  color:#fff;
+  box-shadow:0 0 0 6px rgba(42,157,158,.15), 0 10px 24px rgba(1,113,123,.25);
+}
+
+/* ---------- TEAM avatares com aro ---------- */
+.team-avatar{
+  position:relative;
+  width:88px; height:88px;
+  border-radius:24px;
+  background:linear-gradient(135deg, rgba(42,157,158,.18), rgba(111,227,213,.15));
+  box-shadow:inset 0 0 0 1px rgba(42,157,158,.25), 0 14px 30px rgba(1,113,123,.18);
+  overflow:visible;
+}
+.team-avatar img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  border-radius:24px;
+  /* mostra o aro do gradient por baixo */
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.6);
+}
+.team-avatar .t-badge{
+  z-index:3;
+}
+
+/* ---------- MEALS TABLE - glass + neon row hover ---------- */
+.meals-table{
+  background:rgba(255,255,255,.65);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(1,113,123,.08);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:0 12px 40px rgba(1,73,81,.08);
+}
+.meal-head{
+  background:linear-gradient(135deg, var(--c-aurora-1), var(--c-aurora-2));
+  color:#fff;
+}
+.meal-row{ transition:.25s var(--easing); }
+.meal-row:hover{ background:rgba(42,157,158,.06); }
+
+/* ---------- CHATBOT FAB com pulse ---------- */
+.chat-fab{
+  background:linear-gradient(135deg, var(--c-aurora-1), var(--c-aurora-2));
+  box-shadow:0 16px 40px rgba(1,113,123,.45);
+}
+.chat-fab-pulse{
+  background:rgba(42,157,158,.55);
+}
+
+/* ---------- FOOTER futurista ---------- */
+.site-footer{
+  background:
+    radial-gradient(800px 400px at 100% 0%, rgba(42,157,158,.22), transparent 60%),
+    radial-gradient(700px 400px at 0% 100%, rgba(1,113,123,.30), transparent 60%),
+    linear-gradient(180deg, var(--c-night) 0%, #051b1f 100%);
+  color:#C6D8DA;
+  position:relative;
+  overflow:hidden;
+}
+.site-footer::before{
+  content:'';
+  position:absolute; inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px) 0 0/40px 40px;
+  pointer-events:none;
+}
+.site-footer h3, .site-footer h4{ color:#fff; }
+.site-footer a{ color:#9CD8DC; }
+.site-footer a:hover{ color:#fff; }
+.f-brand .slogan{ color:#A8C5C9; }
+
+/* ---------- DECORATIVE DIVIDER (curva entre secoes) ---------- */
+.section-curve-top{ position:relative; }
+.section-curve-top::before{
+  content:'';
+  position:absolute; top:-1px; left:0; right:0;
+  height:80px;
+  background:inherit;
+  -webkit-mask-image: radial-gradient(ellipse 60% 80px at 50% 0%, transparent 0 79px, #000 80px);
+          mask-image: radial-gradient(ellipse 60% 80px at 50% 0%, transparent 0 79px, #000 80px);
+}
+
+/* ---------- REVEAL ON SCROLL ---------- */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .9s var(--easing), transform .9s var(--easing);
+  will-change:opacity, transform;
+}
+[data-reveal].is-visible{
+  opacity:1; transform:none;
+}
+[data-reveal][data-reveal-delay="1"].is-visible{ transition-delay:.10s }
+[data-reveal][data-reveal-delay="2"].is-visible{ transition-delay:.20s }
+[data-reveal][data-reveal-delay="3"].is-visible{ transition-delay:.30s }
+[data-reveal][data-reveal-delay="4"].is-visible{ transition-delay:.40s }
+
+/* ---------- COUNTER NUMBER ---------- */
+.counter{ font-variant-numeric: tabular-nums; }
+
+/* ---------- ACOMODACOES GRID com imagem ---------- */
+.acc-imgs{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+  margin-bottom:28px;
+}
+.acc-imgs .imgshow{ aspect-ratio:4/3; }
+@media (max-width:680px){ .acc-imgs{ grid-template-columns:1fr; } }
+
+/* ---------- PRESERVE REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  [data-reveal]{ opacity:1; transform:none; }
+  .hero-card, .hero-badge, .hero-selo{ animation:none; }
+}

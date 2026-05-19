@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="rg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2A9D9E"/>
+      <stop offset="100%" stop-color="#014951"/>
+    </radialGradient>
+  </defs>
+  <circle cx="200" cy="200" r="190" fill="url(#rg)"/>
+  <circle cx="200" cy="200" r="170" fill="none" stroke="#fff" stroke-width="3" opacity=".6"/>
+  <text x="200" y="160" text-anchor="middle" font-family="Manrope, sans-serif" font-size="34" font-weight="800" fill="#fff">ACREDITADO</text>
+  <text x="200" y="220" text-anchor="middle" font-family="Manrope, sans-serif" font-size="78" font-weight="800" fill="#fff" letter-spacing="6">ONA</text>
+  <text x="200" y="260" text-anchor="middle" font-family="Inter, sans-serif" font-size="22" fill="#D6EBED">Nivel 3 - Excelencia</text>
+  <text x="200" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#D6EBED" opacity=".7">substitua public/img/selo-ona.png</text>
+</svg>

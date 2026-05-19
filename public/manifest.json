@@ -1,0 +1,41 @@
+{
+  "name": "Guia do Paciente HSFA",
+  "short_name": "HSFA Guia",
+  "description": "Guia do Paciente 2024 — Hospital São Francisco de Assis. Acesso offline a orientações sobre internação, segurança e direitos.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#01717B",
+  "theme_color": "#01717B",
+  "lang": "pt-BR",
+  "categories": ["health", "medical", "lifestyle"],
+  "icons": [
+    { "src": "/img/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "/img/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "/img/icon.svg",     "sizes": "any",     "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Direitos do Paciente",
+      "short_name": "Direitos",
+      "description": "Acessar diretamente os direitos e deveres",
+      "url": "/#direitos",
+      "icons": [{ "src": "/img/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Falar com Ouvidoria",
+      "short_name": "Ouvidoria",
+      "description": "Enviar uma manifestação",
+      "url": "/#contato",
+      "icons": [{ "src": "/img/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Dúvidas Frequentes",
+      "short_name": "FAQ",
+      "description": "Tirar dúvidas comuns",
+      "url": "/#faq",
+      "icons": [{ "src": "/img/icon-192.svg", "sizes": "192x192" }]
+    }
+  ]
+}
