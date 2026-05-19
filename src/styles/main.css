@@ -212,21 +212,172 @@ h1, h2{ letter-spacing:-.02em; }
   box-shadow:0 24px 60px rgba(1,73,81,.18);
 }
 
-/* Tag flutuante extra (ex: selo ONA) */
-.hero-selo{
+/* ============================================================
+   ONA NIVEL 3 - card destaque na capa
+   Substitui o badge antigo. Selo grande + texto + glow dourado.
+   ============================================================ */
+.hero-ona{
   position:absolute;
-  top:30px; right:-20px;
-  width:120px; height:120px;
-  border-radius:50%;
-  background:#fff;
-  padding:8px;
-  box-shadow:0 18px 50px rgba(1,73,81,.22);
-  animation:floatY 8s ease-in-out infinite;
-  z-index:3;
+  bottom:-22px; left:-22px;
+  z-index:4;
+  display:flex; align-items:center; gap:16px;
+  padding:14px 22px 14px 14px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:22px;
+  box-shadow:
+    0 24px 60px rgba(1,73,81,.28),
+    0 0 0 1px rgba(255,255,255,.6) inset,
+    0 0 40px rgba(212,175,55,.30);
+  animation:floatY 7s ease-in-out infinite reverse;
 }
-.hero-selo img{width:100%; height:100%; border-radius:50%; object-fit:cover}
+.hero-ona::before{
+  /* halo dourado */
+  content:'';
+  position:absolute; inset:-14px;
+  border-radius:30px;
+  background:conic-gradient(from 0deg, rgba(212,175,55,.35), rgba(255,200,87,0), rgba(212,175,55,.35));
+  filter:blur(14px);
+  z-index:-1;
+  opacity:.6;
+  animation:rotate 12s linear infinite;
+}
+@keyframes rotate{ to { transform:rotate(360deg); } }
+
+.hero-ona-seal{
+  width:84px; height:84px;
+  border-radius:50%;
+  object-fit:contain;
+  filter:drop-shadow(0 6px 16px rgba(184,134,11,.45));
+  flex-shrink:0;
+}
+.hero-ona-meta{
+  display:flex; flex-direction:column;
+  line-height:1.1;
+}
+.hero-ona-tag{
+  display:inline-block;
+  font-family:var(--f-display);
+  font-size:.65rem;
+  letter-spacing:.18em;
+  font-weight:800;
+  color:#B8860B;
+  background:linear-gradient(90deg, rgba(212,175,55,.18), rgba(255,200,87,.08));
+  padding:4px 8px;
+  border-radius:6px;
+  width:fit-content;
+  margin-bottom:4px;
+}
+.hero-ona-meta strong{
+  font-family:var(--f-display);
+  font-size:1.15rem;
+  font-weight:800;
+  color:var(--c-teal-dark);
+  letter-spacing:-.02em;
+  line-height:1.1;
+  margin-bottom:2px;
+}
+.hero-ona-meta em{
+  font-style:normal;
+  font-family:var(--f-display);
+  font-size:1.05rem;
+  font-weight:800;
+  background:linear-gradient(120deg, #B8860B, #DAA520 50%, #FFD700);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  letter-spacing:.02em;
+}
+
 @media (max-width:880px){
-  .hero-selo{ width:96px; height:96px; right:0; top:10px; }
+  .hero-ona{
+    bottom:-16px; left:50%;
+    transform:translateX(-50%);
+    padding:12px 18px 12px 12px;
+  }
+  .hero-ona-seal{ width:64px; height:64px; }
+  .hero-ona-meta strong{ font-size:1rem; }
+  .hero-ona-meta em{ font-size:.95rem; }
+}
+
+/* ============================================================
+   DIREITOS E DEVERES - cards em grade
+   Mais facil de bater o olho, agrupado por numero destacado.
+   ============================================================ */
+.rights-list{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:14px;
+  padding:0;
+  margin-top:1rem;
+  list-style:none;
+}
+.rights-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  padding:18px 20px;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(1,113,123,.08);
+  border-radius:16px;
+  transition:.3s var(--easing);
+  position:relative;
+  overflow:hidden;
+}
+.rights-list li::before{
+  /* linha colorida lateral */
+  content:'';
+  position:absolute; top:0; bottom:0; left:0;
+  width:4px;
+  background:linear-gradient(180deg, var(--c-aurora-2), var(--c-aurora-3));
+  transform:scaleY(.3);
+  transform-origin:top;
+  transition:transform .35s var(--easing);
+}
+.rights-list li:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 36px rgba(1,73,81,.12);
+  border-color:rgba(42,157,158,.32);
+}
+.rights-list li:hover::before{ transform:scaleY(1); }
+
+.rights-list li b{
+  flex-shrink:0;
+  width:46px; height:46px;
+  border-radius:12px;
+  background:linear-gradient(135deg, var(--c-aurora-1), var(--c-aurora-2));
+  color:#fff;
+  font-family:var(--f-display);
+  font-size:1.05rem;
+  font-weight:800;
+  display:grid; place-items:center;
+  box-shadow:0 6px 18px rgba(1,113,123,.30);
+  letter-spacing:-.02em;
+}
+.rights-list li p{
+  margin:0;
+  font-size:.96rem;
+  line-height:1.55;
+  align-self:center;
+  color:var(--c-text);
+}
+
+/* Deveres - tom mais escuro */
+#duties-list li b{
+  background:linear-gradient(135deg, var(--c-teal-dark), var(--c-aurora-1));
+  box-shadow:0 6px 18px rgba(1,73,81,.30);
+}
+#duties-list li::before{
+  background:linear-gradient(180deg, var(--c-teal-dark), var(--c-aurora-2));
+}
+
+@media (max-width:720px){
+  .rights-list{ grid-template-columns:1fr; }
+  .rights-list li{ padding:16px; gap:14px; }
+  .rights-list li b{ width:40px; height:40px; font-size:.95rem; }
 }
 
 /* ---------- SECTION TITLES ANIMADOS ---------- */

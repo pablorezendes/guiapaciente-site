@@ -22,7 +22,7 @@ window.I18N = {
     'nav.contact': 'Contato',
 
     // Hero
-    'hero.eyebrow': 'Plantão 24h • Acreditado ONA',
+    'hero.eyebrow': 'Plantão 24h • Acreditado com Excelência ONA Nível 3',
     'hero.title.part1': 'Guia do',
     'hero.title.highlight': 'Paciente',
     'hero.lead': 'O melhor atendimento, em qualquer hora que precisar. Este guia reúne tudo o que você e seus familiares precisam saber sobre sua permanência no Hospital São Francisco de Assis.',
@@ -32,7 +32,7 @@ window.I18N = {
     'hero.stat.founded': 'Fundado em Goiânia-GO',
     'hero.stat.er': 'Pronto Socorro',
     'hero.stat.icu': 'UTIs (uma humanizada)',
-    'hero.stat.accred': 'Acreditado pleno',
+    'hero.stat.accred': 'Excelência ONA Nível 3',
     'hero.capa.alt': 'Capa do Guia do Paciente 2026 do HSFA',
 
     // Missão • Visão • Valores
@@ -181,7 +181,7 @@ window.I18N = {
     'feedback.form.sending': 'Enviando...',
 
     // Footer
-    'footer.slogan': 'Plantão 24h • Acreditado ONA • Qualificado UNIMED',
+    'footer.slogan': 'Plantão 24h • Acreditado com Excelência ONA Nível 3 • Qualificado UNIMED',
     'footer.contact': 'Contato',
     'footer.address': 'Endereço',
     'footer.quick': 'Navegação rápida',
@@ -209,7 +209,7 @@ window.I18N = {
     'nav.rights': 'Rights',
     'nav.contact': 'Contact',
 
-    'hero.eyebrow': '24/7 ER • ONA Accredited',
+    'hero.eyebrow': '24/7 ER • ONA Level 3 Excellence Accredited',
     'hero.title.part1': 'Patient',
     'hero.title.highlight': 'Guide',
     'hero.lead': 'The best care, any time you need it. This guide brings together everything you and your family need to know about your stay at Hospital São Francisco de Assis.',
@@ -219,7 +219,7 @@ window.I18N = {
     'hero.stat.founded': 'Founded in Goiânia, Brazil',
     'hero.stat.er': 'Emergency Room',
     'hero.stat.icu': 'ICUs (one humanized)',
-    'hero.stat.accred': 'Full accreditation',
+    'hero.stat.accred': 'ONA Level 3 Excellence',
     'hero.capa.alt': 'HSFA 2026 Patient Guide cover',
 
     'mvv.title': 'Mission • Vision • Values',
@@ -352,7 +352,7 @@ window.I18N = {
     'feedback.form.error': '⚠ Please fill in all required fields.',
     'feedback.form.sending': 'Sending...',
 
-    'footer.slogan': '24/7 ER • ONA Accredited • UNIMED Qualified',
+    'footer.slogan': '24/7 ER • ONA Level 3 Excellence Accredited • UNIMED Qualified',
     'footer.contact': 'Contact',
     'footer.address': 'Address',
     'footer.quick': 'Quick links',
@@ -379,7 +379,7 @@ window.I18N = {
     'nav.rights': 'Derechos',
     'nav.contact': 'Contacto',
 
-    'hero.eyebrow': 'Guardia 24h • Acreditado ONA',
+    'hero.eyebrow': 'Guardia 24h • Acreditado con Excelencia ONA Nivel 3',
     'hero.title.part1': 'Guía del',
     'hero.title.highlight': 'Paciente',
     'hero.lead': 'La mejor atención, a cualquier hora que la necesite. Esta guía reúne todo lo que usted y su familia necesitan saber sobre su estancia en el Hospital São Francisco de Assis.',
@@ -389,7 +389,7 @@ window.I18N = {
     'hero.stat.founded': 'Fundado en Goiânia, Brasil',
     'hero.stat.er': 'Urgencias',
     'hero.stat.icu': 'UCIs (una humanizada)',
-    'hero.stat.accred': 'Acreditado pleno',
+    'hero.stat.accred': 'Excelencia ONA Nivel 3',
     'hero.capa.alt': 'Portada de la Guía del Paciente 2026 del HSFA',
 
     'mvv.title': 'Misión • Visión • Valores',
@@ -522,7 +522,7 @@ window.I18N = {
     'feedback.form.error': '⚠ Por favor, complete todos los campos obligatorios.',
     'feedback.form.sending': 'Enviando...',
 
-    'footer.slogan': 'Guardia 24h • Acreditado ONA • Calificado UNIMED',
+    'footer.slogan': 'Guardia 24h • Acreditado con Excelencia ONA Nivel 3 • Calificado UNIMED',
     'footer.contact': 'Contacto',
     'footer.address': 'Dirección',
     'footer.quick': 'Navegación rápida',
