@@ -294,9 +294,44 @@ app.use((req, res, next) => {
 });
 
 /* ============================================================
-   STATIC (dist + SPA fallback)
+   INDEX DINAMICO - injeta a versao atual das imagens
+   imgVersion() = data do upload mais recente. A cada troca de
+   foto pelo admin a versao muda, entao as URLs /img/*?v=N
+   mudam e NENHUM cache (navegador, service worker, Cloudflare)
+   serve imagem velha - porque a URL passa a ser nova.
+   ============================================================ */
+function imgVersion() {
+  try {
+    let max = 0;
+    for (const f of fs.readdirSync(UPLOADS_DIR)) {
+      const m = fs.statSync(path.join(UPLOADS_DIR, f)).mtimeMs;
+      if (m > max) max = m;
+    }
+    return max ? String(Math.round(max)) : 'b3';
+  } catch {
+    return 'b3';
+  }
+}
+
+function serveIndex(_req, res) {
+  try {
+    let html = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
+    html = html.replace(/\?v=3"/g, `?v=${imgVersion()}"`);
+    res.set('Cache-Control', 'no-cache');
+    res.type('html').send(html);
+  } catch {
+    res.status(500).send('Erro ao carregar a pagina.');
+  }
+}
+
+app.get('/', serveIndex);
+app.get('/index.html', serveIndex);
+
+/* ============================================================
+   STATIC (dist) - index desativado (controlado por serveIndex)
    ============================================================ */
 app.use(express.static(DIST, {
+  index:       false,
   etag:        true,
   lastModified:true,
   maxAge:      '7d',
@@ -316,13 +351,13 @@ app.use(express.static(DIST, {
   }
 }));
 
-/* SPA fallback (deixa /admin servir o index do admin se existir) */
+/* SPA fallback */
 app.get('*', (req, res) => {
   if (req.path.startsWith('/admin')) {
     const adminIndex = path.join(DIST, 'admin', 'index.html');
     if (fs.existsSync(adminIndex)) return res.sendFile(adminIndex);
   }
-  res.sendFile(path.join(DIST, 'index.html'));
+  serveIndex(req, res);
 });
 
 /* ============================================================
