@@ -66,6 +66,9 @@
 
   /* ---------- SCREENS ---------- */
   function showScreen(name) {
+    /* display inline vence qualquer CSS - independe de style.css atualizado */
+    screens.login.style.display = name === 'login' ? 'grid' : 'none';
+    screens.dash.style.display  = name === 'dash'  ? 'grid' : 'none';
     screens.login.hidden = name !== 'login';
     screens.dash.hidden  = name !== 'dash';
   }
