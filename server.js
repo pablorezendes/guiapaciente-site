@@ -286,8 +286,9 @@ app.use((req, res, next) => {
   if (!SLOT_NAMES.has(base)) return next();
   const uploaded = getUploadedFile(base);
   if (!uploaded) return next();
-  const ageMs = Date.now() - fs.statSync(uploaded.path).mtimeMs;
-  res.setHeader('Cache-Control', ageMs < 60000 ? 'no-cache' : 'public, max-age=300');
+  /* no-cache: o navegador revalida sempre (304 se nao mudou).
+     Garante que a troca de imagem pelo admin apareça na hora. */
+  res.setHeader('Cache-Control', 'no-cache');
   res.setHeader('X-Img-Source', 'upload');
   res.sendFile(uploaded.path);
 });
@@ -306,6 +307,9 @@ app.use(express.static(DIST, {
     } else if (norm.includes('/admin/')) {
       /* admin e ferramenta interna - sempre fresco */
       res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    } else if (norm.includes('/img/')) {
+      /* imagens podem ser trocadas pelo admin - sempre revalida */
+      res.setHeader('Cache-Control', 'no-cache');
     } else if (file.endsWith('.html')) {
       res.setHeader('Cache-Control', 'no-cache');
     }

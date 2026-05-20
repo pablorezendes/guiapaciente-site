@@ -3,16 +3,14 @@
    Service Worker — Cache offline
    ========================================================= */
 
-const CACHE_VERSION = 'hsfa-guia-v2.3.0';
+const CACHE_VERSION = 'hsfa-guia-v2.4.0';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
 // Recursos essenciais - pre-cacheados na instalacao.
-// Tudo same-origin (fontes auto-hospedadas) - sem dependencia de CDN.
+// Imagens NAO entram aqui: podem ser trocadas pelo admin a qualquer momento.
 const PRECACHE_URLS = [
   '/',
   '/index.html',
-  '/img/icon.svg',
-  '/img/hero-capa.svg',
   '/manifest.json',
   '/fonts/fonts.css',
   '/fonts/manrope-latin.woff2',
@@ -72,6 +70,26 @@ self.addEventListener('fetch', (event) => {
 
   // POST do formulário de ouvidoria — passa direto sem cache
   if (request.url.includes('webhook') || request.url.includes('formspree') || request.url.includes('formsubmit')) {
+    return;
+  }
+
+  // IMAGENS (/img/*): network-first — uploads do admin aparecem na hora.
+  // Cai pro cache so quando offline.
+  if (url.pathname.startsWith('/img/')) {
+    event.respondWith(
+      fetch(request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          }
+          return networkResponse;
+        })
+        .catch(async () => {
+          const cached = await caches.match(request);
+          return cached || Response.error();
+        })
+    );
     return;
   }
 
