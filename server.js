@@ -164,6 +164,15 @@ app.use(helmet({
   crossOriginEmbedderPolicy: false
 }));
 
+/* Permissions-Policy + Referrer-Policy (helmet 7 nao define).
+   Garante o conjunto de headers de seguranca completo mesmo
+   quando o Cloudflare nao injeta os dele neste subdominio. */
+app.use((_req, res, next) => {
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=()');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  next();
+});
+
 /* ============================================================
    HEALTH
    ============================================================ */
