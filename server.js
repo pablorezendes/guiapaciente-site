@@ -298,10 +298,13 @@ app.use(express.static(DIST, {
   lastModified:true,
   maxAge:      '7d',
   setHeaders(res, file) {
+    const norm = file.replace(/\\/g, '/');
     if (file.endsWith('sw.js')) {
       res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-    }
-    if (file.endsWith('.html')) {
+    } else if (norm.includes('/admin/')) {
+      /* admin e ferramenta interna - sempre fresco */
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    } else if (file.endsWith('.html')) {
       res.setHeader('Cache-Control', 'no-cache');
     }
   }

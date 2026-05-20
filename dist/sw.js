@@ -3,7 +3,7 @@
    Service Worker — Cache offline
    ========================================================= */
 
-const CACHE_VERSION = 'hsfa-guia-v2.1.0';
+const CACHE_VERSION = 'hsfa-guia-v2.2.0';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
 // Recursos essenciais - pre-cacheados na instalacao.
@@ -62,6 +62,11 @@ self.addEventListener('fetch', (event) => {
   // Ignora chrome-extension://, data:, etc.
   const url = new URL(request.url);
   if (!['http:', 'https:'].includes(url.protocol)) return;
+
+  // ADMIN e API: sempre rede, NUNCA cache (ferramenta interna)
+  if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/')) {
+    return;
+  }
 
   // POST do formulário de ouvidoria — passa direto sem cache
   if (request.url.includes('webhook') || request.url.includes('formspree') || request.url.includes('formsubmit')) {
