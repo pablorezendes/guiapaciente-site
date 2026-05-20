@@ -3,7 +3,7 @@
    Service Worker — Cache offline
    ========================================================= */
 
-const CACHE_VERSION = 'hsfa-guia-v2.4.0';
+const CACHE_VERSION = 'hsfa-guia-v2.5.0';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
 // Recursos essenciais - pre-cacheados na instalacao.
@@ -63,6 +63,10 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
   if (!['http:', 'https:'].includes(url.protocol)) return;
 
+  // SO processa requisicoes do proprio site. Cross-origin (Kaspersky,
+  // Cloudflare beacon, analytics) passa direto sem o SW interferir.
+  if (url.origin !== self.location.origin) return;
+
   // ADMIN e API: sempre rede, NUNCA cache (ferramenta interna)
   if (url.pathname.startsWith('/admin') || url.pathname.startsWith('/api/')) {
     return;
@@ -73,11 +77,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // IMAGENS (/img/*): network-first — uploads do admin aparecem na hora.
-  // Cai pro cache so quando offline.
+  // IMAGENS (/img/*): network-first com bypass do cache HTTP.
+  // cache:'reload' ignora versoes velhas guardadas pelo navegador -
+  // garante que uploads do admin aparecam na hora.
   if (url.pathname.startsWith('/img/')) {
     event.respondWith(
-      fetch(request)
+      fetch(request, { cache: 'reload' })
         .then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             const clone = networkResponse.clone();
