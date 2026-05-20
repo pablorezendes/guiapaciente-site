@@ -213,6 +213,8 @@ window.I18N = {
     'a11y.contrast': 'Alto contraste',
     'a11y.links': 'Destacar links',
     'a11y.motion': 'Reduzir animações',
+    'a11y.read': 'Ler em voz alta',
+    'a11y.read.hint': 'Toque em qualquer texto da página para ouvir.',
     'a11y.reset': 'Restaurar padrão',
 
     /* ====== ADICIONAIS - cobertura total ====== */
@@ -645,6 +647,8 @@ window.I18N = {
     'a11y.contrast': 'High contrast',
     'a11y.links': 'Highlight links',
     'a11y.motion': 'Reduce motion',
+    'a11y.read': 'Read aloud',
+    'a11y.read.hint': 'Tap any text on the page to hear it.',
     'a11y.reset': 'Reset to default',
 
     /* ====== EXTRA - full coverage ====== */
@@ -1060,6 +1064,8 @@ window.I18N = {
     'a11y.contrast': 'Alto contraste',
     'a11y.links': 'Resaltar enlaces',
     'a11y.motion': 'Reducir animaciones',
+    'a11y.read': 'Leer en voz alta',
+    'a11y.read.hint': 'Toque cualquier texto de la página para escucharlo.',
     'a11y.reset': 'Restablecer',
 
     /* ====== EXTRA - cobertura total ====== */

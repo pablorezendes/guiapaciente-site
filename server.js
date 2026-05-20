@@ -143,19 +143,21 @@ app.use(express.json({ limit: '512kb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-/* CSP enxuta - tudo same-origin (fontes auto-hospedadas).
-   Sem dependencia de fonts.googleapis.com / gstatic. */
+/* CSP - same-origin + VLibras (tradutor de Libras do Gov Federal).
+   O VLibras carrega de vlibras.gov.br (script, assets, avatar 3D). */
+const VLIBRAS = 'https://vlibras.gov.br';
 app.use(helmet({
   contentSecurityPolicy: {
     useDefaults: true,
     directives: {
       'default-src':  ["'self'"],
-      'script-src':   ["'self'", "'unsafe-inline'"],
-      'style-src':    ["'self'", "'unsafe-inline'"],
-      'font-src':     ["'self'", 'data:'],
+      'script-src':   ["'self'", "'unsafe-inline'", "'wasm-unsafe-eval'", VLIBRAS],
+      'style-src':    ["'self'", "'unsafe-inline'", VLIBRAS],
+      'font-src':     ["'self'", 'data:', VLIBRAS],
       'img-src':      ["'self'", 'data:', 'blob:', 'https:'],
-      'connect-src':  ["'self'"],
-      'worker-src':   ["'self'"],
+      'connect-src':  ["'self'", VLIBRAS],
+      'worker-src':   ["'self'", 'blob:'],
+      'frame-src':    ["'self'", VLIBRAS],
       'manifest-src': ["'self'"]
     }
   },

@@ -1104,6 +1104,12 @@
         <span data-i18n="a11y.motion">Reduzir animações</span>
         <span class="a11y-state" aria-hidden="true"></span>
       </button>
+      <button class="a11y-toggle" id="a11y-read" aria-pressed="false">
+        <span class="a11y-ic" aria-hidden="true">🔊</span>
+        <span data-i18n="a11y.read">Ler em voz alta</span>
+        <span class="a11y-state" aria-hidden="true"></span>
+      </button>
+      <p class="a11y-hint" id="a11y-read-hint" data-i18n="a11y.read.hint" hidden>Toque em um texto para ouvir.</p>
 
       <button class="a11y-reset" id="a11y-reset" data-i18n="a11y.reset">Restaurar padrão</button>
     </div>
@@ -1158,6 +1164,20 @@
       <button class="btn btn-primary btn-sm" id="install-btn" data-i18n="pwa.install.btn">Instalar</button>
     </div>
   </div>
+
+  <!-- VLIBRAS — tradutor de Libras (Governo Federal) -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      try { new window.VLibras.Widget('https://vlibras.gov.br/app'); } catch (e) {}
+    });
+  </script>
 
   <!-- Scripts e estilos vem por /src/main.js no <head> (Vite) -->
 </body>

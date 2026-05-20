@@ -1147,3 +1147,31 @@ html.a11y-contrast .tab,
 html.a11y-contrast .rt{ border:2px solid #fff !important; }
 html.a11y-contrast :focus-visible{ outline-color:#ffeb3b !important; }
 html.a11y-contrast img{ background:#fff !important; }
+
+/* ---- Leitura em voz alta ---- */
+.a11y-hint{
+  margin:2px 0 10px;
+  font-size:.8rem;
+  color:var(--c-teal-dark);
+  background:var(--c-teal-soft);
+  padding:8px 11px;
+  border-radius:8px;
+  line-height:1.4;
+}
+.a11y-reading{
+  outline:3px solid var(--c-aurora-2) !important;
+  outline-offset:3px;
+  background:rgba(42,157,158,.12);
+  border-radius:4px;
+}
+html.a11y-read main p,
+html.a11y-read main h1,
+html.a11y-read main h2,
+html.a11y-read main h3,
+html.a11y-read main h4,
+html.a11y-read main li,
+html.a11y-read main summary,
+html.a11y-read main .lead,
+html.a11y-read main .section-sub{
+  cursor:pointer;
+}
