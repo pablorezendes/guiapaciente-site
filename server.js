@@ -144,22 +144,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 /* CSP - same-origin + VLibras (tradutor de Libras do Gov Federal).
-   O VLibras carrega de vlibras.gov.br e subdominios. */
-const VL1 = 'https://vlibras.gov.br';
-const VL2 = 'https://*.vlibras.gov.br';
+   O plugin do VLibras e redirecionado para o jsDelivr (CDN),
+   por isso cdn.jsdelivr.net tambem precisa estar liberado. */
+const VL = [
+  'https://vlibras.gov.br',
+  'https://*.vlibras.gov.br',
+  'https://cdn.jsdelivr.net'
+];
 app.use(helmet({
   contentSecurityPolicy: {
     useDefaults: true,
     directives: {
       'default-src':  ["'self'"],
-      'script-src':   ["'self'", "'unsafe-inline'", "'unsafe-eval'", "'wasm-unsafe-eval'", VL1, VL2],
-      'style-src':    ["'self'", "'unsafe-inline'", VL1, VL2],
-      'font-src':     ["'self'", 'data:', VL1, VL2],
+      'script-src':   ["'self'", "'unsafe-inline'", "'unsafe-eval'", "'wasm-unsafe-eval'", ...VL],
+      'style-src':    ["'self'", "'unsafe-inline'", ...VL],
+      'font-src':     ["'self'", 'data:', ...VL],
       'img-src':      ["'self'", 'data:', 'blob:', 'https:'],
-      'connect-src':  ["'self'", VL1, VL2],
+      'connect-src':  ["'self'", ...VL],
       'worker-src':   ["'self'", 'blob:'],
-      'frame-src':    ["'self'", VL1, VL2],
-      'media-src':    ["'self'", 'blob:', VL1, VL2],
+      'frame-src':    ["'self'", ...VL],
+      'media-src':    ["'self'", 'blob:', ...VL],
       'manifest-src': ["'self'"]
     }
   },
