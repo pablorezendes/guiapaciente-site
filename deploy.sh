@@ -106,7 +106,7 @@ if [ "$SKIP_PULL" = false ]; then
     echo -e "${YELLOW}Buscando atualizacoes do branch ${DEPLOY_BRANCH}...${NC}"
     git fetch origin "$DEPLOY_BRANCH"
     git reset --hard "origin/${DEPLOY_BRANCH}"
-    git clean -fd --exclude=.env --exclude=node_modules --exclude=logs
+    git clean -fd --exclude=.env --exclude=node_modules --exclude=logs --exclude=data
 
     echo -e "${GREEN}Codigo atualizado para o ultimo commit do ${DEPLOY_BRANCH}${NC}"
 else
