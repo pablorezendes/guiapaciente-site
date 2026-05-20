@@ -143,16 +143,18 @@ app.use(express.json({ limit: '512kb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+/* CSP enxuta - tudo same-origin (fontes auto-hospedadas).
+   Sem dependencia de fonts.googleapis.com / gstatic. */
 app.use(helmet({
   contentSecurityPolicy: {
     useDefaults: true,
     directives: {
       'default-src':  ["'self'"],
       'script-src':   ["'self'", "'unsafe-inline'"],
-      'style-src':    ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
-      'font-src':     ["'self'", 'https://fonts.gstatic.com', 'data:'],
+      'style-src':    ["'self'", "'unsafe-inline'"],
+      'font-src':     ["'self'", 'data:'],
       'img-src':      ["'self'", 'data:', 'blob:', 'https:'],
-      'connect-src':  ["'self'", 'https:'],
+      'connect-src':  ["'self'"],
       'worker-src':   ["'self'"],
       'manifest-src': ["'self'"]
     }

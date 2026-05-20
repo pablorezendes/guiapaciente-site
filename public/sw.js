@@ -3,18 +3,20 @@
    Service Worker — Cache offline
    ========================================================= */
 
-const CACHE_VERSION = 'hsfa-guia-v2.2.0';
+const CACHE_VERSION = 'hsfa-guia-v2.3.0';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
 // Recursos essenciais - pre-cacheados na instalacao.
-// (O Vite gera hash em /assets/*; o stale-while-revalidate cuida do resto.)
+// Tudo same-origin (fontes auto-hospedadas) - sem dependencia de CDN.
 const PRECACHE_URLS = [
   '/',
   '/index.html',
   '/img/icon.svg',
   '/img/hero-capa.svg',
   '/manifest.json',
-  'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap'
+  '/fonts/fonts.css',
+  '/fonts/manrope-latin.woff2',
+  '/fonts/inter-latin.woff2'
 ];
 
 /* ---------- INSTALL ---------- */
@@ -87,12 +89,14 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         })
-        .catch(() => {
-          // Offline + sem cache: tenta servir página principal para navegações
+        .catch(async () => {
+          // Offline + sem cache: tenta servir pagina principal para navegacoes
           if (request.mode === 'navigate') {
-            return caches.match('/index.html');
+            const fallback = await caches.match('/index.html');
+            if (fallback) return fallback;
           }
-          return cachedResponse;
+          // nunca retorna undefined - respondWith exige um Response
+          return cachedResponse || Response.error();
         });
 
       return cachedResponse || networkFetch;
