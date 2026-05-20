@@ -202,6 +202,19 @@ window.I18N = {
     'pwa.install.btn': 'Instalar',
     'pwa.install.dismiss': 'Agora não',
 
+    // Acessibilidade
+    'a11y.skip': 'Pular para o conteúdo',
+    'a11y.open': 'Opções de acessibilidade',
+    'a11y.title': 'Acessibilidade',
+    'a11y.font': 'Tamanho da fonte',
+    'a11y.font.down': 'Diminuir fonte',
+    'a11y.font.reset': 'Fonte padrão',
+    'a11y.font.up': 'Aumentar fonte',
+    'a11y.contrast': 'Alto contraste',
+    'a11y.links': 'Destacar links',
+    'a11y.motion': 'Reduzir animações',
+    'a11y.reset': 'Restaurar padrão',
+
     /* ====== ADICIONAIS - cobertura total ====== */
     // Acomodacoes - enfermaria
     'acc.enf.companion.tag': 'Acompanhante',
@@ -621,6 +634,19 @@ window.I18N = {
     'pwa.install.btn': 'Install',
     'pwa.install.dismiss': 'Not now',
 
+    // Accessibility
+    'a11y.skip': 'Skip to content',
+    'a11y.open': 'Accessibility options',
+    'a11y.title': 'Accessibility',
+    'a11y.font': 'Font size',
+    'a11y.font.down': 'Decrease font',
+    'a11y.font.reset': 'Default font',
+    'a11y.font.up': 'Increase font',
+    'a11y.contrast': 'High contrast',
+    'a11y.links': 'Highlight links',
+    'a11y.motion': 'Reduce motion',
+    'a11y.reset': 'Reset to default',
+
     /* ====== EXTRA - full coverage ====== */
     'acc.enf.companion.tag': 'Companion',
     'acc.enf.companion.text': 'Allowed only in specific cases: <strong>elderly, children, post-op or special needs patients</strong>. In female wards, the companion must be of the same gender.',
@@ -1022,6 +1048,19 @@ window.I18N = {
     'pwa.install.text': 'Tenga la Guía del Paciente siempre a mano. Funciona sin conexión.',
     'pwa.install.btn': 'Instalar',
     'pwa.install.dismiss': 'Ahora no',
+
+    // Accesibilidad
+    'a11y.skip': 'Saltar al contenido',
+    'a11y.open': 'Opciones de accesibilidad',
+    'a11y.title': 'Accesibilidad',
+    'a11y.font': 'Tamaño de fuente',
+    'a11y.font.down': 'Reducir fuente',
+    'a11y.font.reset': 'Fuente estándar',
+    'a11y.font.up': 'Aumentar fuente',
+    'a11y.contrast': 'Alto contraste',
+    'a11y.links': 'Resaltar enlaces',
+    'a11y.motion': 'Reducir animaciones',
+    'a11y.reset': 'Restablecer',
 
     /* ====== EXTRA - cobertura total ====== */
     'acc.enf.companion.tag': 'Acompañante',

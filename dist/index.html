@@ -20,10 +20,13 @@
   <!-- Fontes auto-hospedadas (sem CDN externo) -->
   <link rel="stylesheet" href="/fonts/fonts.css">
 
-  <script type="module" crossorigin src="/assets/main-BU25Xam4.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-fTwehwrn.css">
+  <script type="module" crossorigin src="/assets/main-uUyZ0tkb.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-CSVE2XXQ.css">
 </head>
 <body>
+
+  <!-- SKIP LINK (acessibilidade) -->
+  <a class="skip-link" href="#conteudo" data-i18n="a11y.skip">Pular para o conteúdo</a>
 
   <!-- HEADER -->
   <header class="site-header" id="topo">
@@ -90,6 +93,8 @@
       </div>
     </div>
   </header>
+
+  <main id="conteudo" tabindex="-1">
 
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
@@ -1007,6 +1012,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <footer class="site-footer" id="contato">
     <div class="container">
@@ -1058,6 +1065,50 @@
       </div>
     </div>
   </footer>
+
+  <!-- WIDGET DE ACESSIBILIDADE -->
+  <div class="a11y" id="a11y">
+    <button class="a11y-fab" id="a11y-fab" aria-expanded="false" aria-controls="a11y-panel"
+            aria-label="Opções de acessibilidade" data-i18n-attr="aria-label|a11y.open" title="Acessibilidade">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="4" r="2"/>
+        <path d="M12 7v8m0 0l-3.5 5m3.5-5l3.5 5M5 9.5c2 1 4.5 1.5 7 1.5s5-.5 7-1.5"/>
+      </svg>
+    </button>
+    <div class="a11y-panel" id="a11y-panel" role="dialog" aria-modal="false" aria-label="Acessibilidade" hidden>
+      <div class="a11y-head">
+        <h3 data-i18n="a11y.title">Acessibilidade</h3>
+        <button class="a11y-close" id="a11y-close" aria-label="Fechar">✕</button>
+      </div>
+
+      <div class="a11y-group">
+        <span class="a11y-label" data-i18n="a11y.font">Tamanho da fonte</span>
+        <div class="a11y-font">
+          <button id="a11y-font-down" aria-label="Diminuir fonte" data-i18n-attr="aria-label|a11y.font.down">A−</button>
+          <button id="a11y-font-reset" aria-label="Fonte padrão" data-i18n-attr="aria-label|a11y.font.reset">A</button>
+          <button id="a11y-font-up" aria-label="Aumentar fonte" data-i18n-attr="aria-label|a11y.font.up">A+</button>
+        </div>
+      </div>
+
+      <button class="a11y-toggle" id="a11y-contrast" aria-pressed="false">
+        <span class="a11y-ic" aria-hidden="true">◐</span>
+        <span data-i18n="a11y.contrast">Alto contraste</span>
+        <span class="a11y-state" aria-hidden="true"></span>
+      </button>
+      <button class="a11y-toggle" id="a11y-links" aria-pressed="false">
+        <span class="a11y-ic" aria-hidden="true">↗</span>
+        <span data-i18n="a11y.links">Destacar links</span>
+        <span class="a11y-state" aria-hidden="true"></span>
+      </button>
+      <button class="a11y-toggle" id="a11y-motion" aria-pressed="false">
+        <span class="a11y-ic" aria-hidden="true">⊘</span>
+        <span data-i18n="a11y.motion">Reduzir animações</span>
+        <span class="a11y-state" aria-hidden="true"></span>
+      </button>
+
+      <button class="a11y-reset" id="a11y-reset" data-i18n="a11y.reset">Restaurar padrão</button>
+    </div>
+  </div>
 
   <!-- BOTÃO VOLTAR AO TOPO -->
   <a href="#topo" class="back-to-top" aria-label="Voltar ao topo">
