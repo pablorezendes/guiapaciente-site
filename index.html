@@ -1175,19 +1175,21 @@
   </div>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
-    window.addEventListener('load', function () {
+    /* Inicializa imediatamente (padrao oficial do VLibras).
+       Chamar no evento 'load' chega tarde demais: o plugin ja
+       rodou seu proprio handler interno e nao renderiza o botao. */
+    (function () {
       if (window.VLibras && window.VLibras.Widget) {
         try {
           new window.VLibras.Widget('https://vlibras.gov.br/app');
-          console.log('[VLibras] widget iniciado com sucesso');
+          console.log('[VLibras] widget criado');
         } catch (e) {
-          console.error('[VLibras] erro ao iniciar o widget:', e);
+          console.error('[VLibras] erro ao criar o widget:', e);
         }
       } else {
-        console.error('[VLibras] o plugin NAO carregou (window.VLibras indefinido). ' +
-          'Verifique na aba Network se vlibras-plugin.js carregou com status 200.');
+        console.error('[VLibras] plugin nao carregou (window.VLibras indefinido)');
       }
-    });
+    })();
   </script>
 
   <!-- Scripts e estilos vem por /src/main.js no <head> (Vite) -->
