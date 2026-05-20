@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin - Guia do Paciente HSFA</title>
+  <link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/style.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <section class="login" id="screen-login">
+    <div class="login-card">
+      <img src="/img/logo.png" alt="HSFA" class="login-logo">
+      <h1>Painel Admin</h1>
+      <p class="login-sub">Gerencie as imagens do Guia do Paciente</p>
+      <form id="login-form" autocomplete="off">
+        <label for="pwd">Senha</label>
+        <input type="password" id="pwd" name="password" required autofocus autocomplete="current-password">
+        <button type="submit" class="btn-primary">
+          <span class="btn-text">Entrar</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+        <p class="login-err" id="login-err" hidden></p>
+      </form>
+      <a class="login-back" href="/">← Voltar ao site</a>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="dash" id="screen-dash" hidden>
+    <aside class="side">
+      <a class="brand" href="/" target="_blank" rel="noopener">
+        <img src="/img/logo.png" alt="HSFA">
+      </a>
+      <nav class="side-nav">
+        <a class="active" href="#imagens"><span class="ic">🖼️</span> Imagens</a>
+        <a href="/" target="_blank" rel="noopener"><span class="ic">🌐</span> Abrir site</a>
+      </nav>
+      <button class="logout" id="logout-btn"><span class="ic">⎋</span> Sair</button>
+    </aside>
+
+    <main class="main">
+      <header class="top">
+        <div>
+          <h1>Imagens do site</h1>
+          <p class="muted">Substitua qualquer imagem direto pelo navegador. Funciona em produção.</p>
+        </div>
+        <div class="top-actions">
+          <span class="badge" id="counter">0 / 0 personalizadas</span>
+        </div>
+      </header>
+
+      <div class="filters">
+        <button class="chip active" data-group="all">Todas</button>
+        <button class="chip" data-group="Marca">Marca</button>
+        <button class="chip" data-group="Hero">Hero</button>
+        <button class="chip" data-group="Acomodacoes">Acomodações</button>
+        <button class="chip" data-group="Equipe">Equipe</button>
+      </div>
+
+      <div class="grid" id="grid"></div>
+
+      <div class="hint">
+        <strong>Dica:</strong> envie imagens em <code>JPG</code>, <code>PNG</code> ou <code>WEBP</code> (até 10 MB). A imagem aparece no site instantaneamente — não precisa rebuildar nem reiniciar o PM2.
+      </div>
+    </main>
+  </section>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="/admin/app.js"></script>
+</body>
+</html>

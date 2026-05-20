@@ -30,6 +30,8 @@ DEPLOY_BRANCH=main
 PORT=3010
 HOST=0.0.0.0
 NODE_ENV=production
+ADMIN_PASSWORD=$(head -c 12 /dev/urandom | base64 | tr -dc 'A-Za-z0-9' | head -c 12)
+ADMIN_SESSION_HOURS=24
 EOF
     chmod 600 .env
     echo -e "${RED}Edite /home/guiapaciente/.env e coloque o GITHUB_TOKEN, depois rode novamente.${NC}"

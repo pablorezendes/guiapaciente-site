@@ -112,29 +112,43 @@ Todas as imagens vivem em **`public/img/`**. Hoje cada slot tem um **SVG placeho
 | **Avatar farmácia** | `public/img/equipe-farmacia.svg` | 800×800 | Card *Farmácia Clínica* |
 | **Ícones PWA** | `icon.svg`, `icon-192.svg`, `icon-512.svg`, `apple-touch-icon.svg`, `favicon-32.svg` | — | Manifest + tab do browser |
 
-### Como trocar uma imagem (passo a passo)
+### Forma recomendada: Painel Admin
 
-1. Pegue sua foto (idealmente já no tamanho do quadro).
-2. Renomeie para o mesmo nome do slot. Ex.: `uti-humanizada.jpg`.
+Acesse **`https://guiapaciente.hsfasaude.com.br/admin`**, faça login com a senha do `.env` (`ADMIN_PASSWORD`) e envie as imagens pelo navegador. A troca é **instantânea** — não precisa rebuildar nem reiniciar o PM2.
+
+- Grid com os 19 slots, preview ao vivo, filtro por categoria
+- Aceita `JPG`, `PNG`, `WEBP` até 10 MB
+- Botão "↺" volta a imagem ao placeholder padrão
+- As imagens enviadas ficam em `data/uploads/` (fora do git, sobrevivem a deploys)
+- O servidor intercepta `/img/<slot>.*` e serve o upload por cima do default — o HTML não muda
+
+### Forma manual (via código)
+
+1. Pegue sua foto já no tamanho do quadro.
+2. Renomeie para o nome do slot. Ex.: `uti-humanizada.jpg`.
 3. Coloque em `public/img/` substituindo o SVG.
-4. No `index.html`, troque a extensão no `src`:
-
-   ```html
-   <!-- antes -->
-   <img src="/img/uti-humanizada.svg" alt="...">
-   <!-- depois -->
-   <img src="/img/uti-humanizada.jpg" alt="...">
-   ```
-
-   (Procure pelo comentário `<!-- SLOT: uti-humanizada ... -->` no `index.html`.)
-
+4. No `index.html`, troque a extensão no `src` (procure `<!-- SLOT: ... -->`).
 5. `npm run build` para regenerar o `dist/`.
 
-Se quiser regerar todos os placeholders do zero:
+Para regerar todos os placeholders do zero:
 
 ```bash
 node scripts/generate-placeholders.mjs
 ```
+
+---
+
+## Painel Admin
+
+| Item | Detalhe |
+| ---- | ------- |
+| URL | `/admin` |
+| Senha | `.env` → `ADMIN_PASSWORD` |
+| Sessão | cookie httpOnly, expira em `ADMIN_SESSION_HOURS` (default 24h) |
+| Upload | `data/uploads/<slot>.<ext>` |
+| Endpoints | `POST /api/admin/login`, `/logout`, `GET /api/admin/slots`, `POST /api/admin/upload/:slot`, `DELETE /api/admin/upload/:slot` |
+
+A senha é gerada aleatoriamente pelo `server/install.sh` na primeira execução — veja em `/home/guiapaciente/.env`. Para trocar, edite o `.env` e rode `./deploy.sh --skip-pull --skip-build`.
 
 ---
 
