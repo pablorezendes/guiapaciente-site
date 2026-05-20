@@ -599,7 +599,6 @@ h1, h2{ letter-spacing:-.02em; }
 }
 
 /* ---------- INFO CARDS, CHECKLIST, RULES (glow on hover) ---------- */
-.info-card,
 .checklist-card,
 .rule,
 .s-card,
@@ -616,7 +615,6 @@ h1, h2{ letter-spacing:-.02em; }
   position:relative;
   overflow:hidden;
 }
-.info-card:hover,
 .checklist-card:hover,
 .rule:hover,
 .s-card:hover,
@@ -628,6 +626,15 @@ h1, h2{ letter-spacing:-.02em; }
   transform:translateY(-4px);
   box-shadow:var(--c-glow);
   border-color:rgba(42,157,158,.32);
+}
+
+/* info-card NAO entra no grupo de cards claros: ele tem o
+   design teal original com texto branco. Fundo claro deixaria
+   o texto branco invisivel. Mantem hover proprio. */
+.info-card{ transition:.3s var(--easing); }
+.info-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 44px rgba(1,73,81,.32);
 }
 
 /* ---------- METAS - numero gigante de fundo ---------- */
