@@ -144,20 +144,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 /* CSP - same-origin + VLibras (tradutor de Libras do Gov Federal).
-   O VLibras carrega de vlibras.gov.br (script, assets, avatar 3D). */
-const VLIBRAS = 'https://vlibras.gov.br';
+   O VLibras carrega de vlibras.gov.br e subdominios. */
+const VL1 = 'https://vlibras.gov.br';
+const VL2 = 'https://*.vlibras.gov.br';
 app.use(helmet({
   contentSecurityPolicy: {
     useDefaults: true,
     directives: {
       'default-src':  ["'self'"],
-      'script-src':   ["'self'", "'unsafe-inline'", "'wasm-unsafe-eval'", VLIBRAS],
-      'style-src':    ["'self'", "'unsafe-inline'", VLIBRAS],
-      'font-src':     ["'self'", 'data:', VLIBRAS],
+      'script-src':   ["'self'", "'unsafe-inline'", "'unsafe-eval'", "'wasm-unsafe-eval'", VL1, VL2],
+      'style-src':    ["'self'", "'unsafe-inline'", VL1, VL2],
+      'font-src':     ["'self'", 'data:', VL1, VL2],
       'img-src':      ["'self'", 'data:', 'blob:', 'https:'],
-      'connect-src':  ["'self'", VLIBRAS],
+      'connect-src':  ["'self'", VL1, VL2],
       'worker-src':   ["'self'", 'blob:'],
-      'frame-src':    ["'self'", VLIBRAS],
+      'frame-src':    ["'self'", VL1, VL2],
+      'media-src':    ["'self'", 'blob:', VL1, VL2],
       'manifest-src': ["'self'"]
     }
   },

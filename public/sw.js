@@ -3,7 +3,7 @@
    Service Worker — Cache offline
    ========================================================= */
 
-const CACHE_VERSION = 'hsfa-guia-v2.5.0';
+const CACHE_VERSION = 'hsfa-guia-v2.6.0';
 const CACHE_NAME = `${CACHE_VERSION}-static`;
 
 // Recursos essenciais - pre-cacheados na instalacao.
@@ -74,6 +74,28 @@ self.addEventListener('fetch', (event) => {
 
   // POST do formulário de ouvidoria — passa direto sem cache
   if (request.url.includes('webhook') || request.url.includes('formspree') || request.url.includes('formsubmit')) {
+    return;
+  }
+
+  // NAVEGACAO (documento HTML): network-first.
+  // O HTML carrega a CSP e a versao das imagens - precisa estar
+  // sempre fresco. Cai pro cache so quando offline.
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          }
+          return networkResponse;
+        })
+        .catch(async () => {
+          return (await caches.match(request)) ||
+                 (await caches.match('/index.html')) ||
+                 Response.error();
+        })
+    );
     return;
   }
 
