@@ -14,12 +14,16 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import dotenv from 'dotenv';
 
-dotenv.config();
+/* override:true -> o .env e sempre a fonte da verdade,
+   mesmo que o PM2 tenha injetado um valor antigo via --update-env */
+dotenv.config({ override: true });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 
 const app  = express();
+/* confia no proxy reverso (nginx) para req.secure / X-Forwarded-Proto */
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3010;
 const HOST = process.env.HOST || '0.0.0.0';
 const DIST = path.join(__dirname, 'dist');
@@ -205,16 +209,16 @@ app.post('/api/admin/login', (req, res) => {
   const token = signToken(ttlMs);
   res.cookie('admin_token', token, {
     httpOnly: true,
-    secure:   IS_PROD,
-    sameSite: 'strict',
+    secure:   req.secure,   /* Secure so quando a requisicao veio por HTTPS */
+    sameSite: 'lax',
     maxAge:   ttlMs,
     path:     '/'
   });
   res.json({ ok: true });
 });
 
-app.post('/api/admin/logout', (_req, res) => {
-  res.clearCookie('admin_token', { path: '/' });
+app.post('/api/admin/logout', (req, res) => {
+  res.clearCookie('admin_token', { path: '/', secure: req.secure, sameSite: 'lax' });
   res.json({ ok: true });
 });
 
@@ -317,5 +321,9 @@ app.get('*', (req, res) => {
    ============================================================ */
 app.listen(PORT, HOST, () => {
   console.log(`Guia do Paciente HSFA rodando em http://${HOST}:${PORT}`);
-  console.log(`Admin disponivel em http://${HOST}:${PORT}/admin (senha em .env ADMIN_PASSWORD)`);
+  console.log(`Admin em /admin - senha configurada: ${
+    ADMIN_PASSWORD && ADMIN_PASSWORD !== 'admin'
+      ? `sim (${ADMIN_PASSWORD.length} caracteres)`
+      : 'NAO (usando default "admin" - configure ADMIN_PASSWORD no .env)'
+  }`);
 });
