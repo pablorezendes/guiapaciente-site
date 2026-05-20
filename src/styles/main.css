@@ -22,6 +22,10 @@
   --easing:     cubic-bezier(.4,0,.2,1);
 }
 
+/* o atributo hidden precisa vencer .rights-list (display:grid) e
+   outros elementos com display definido no CSS */
+[hidden]{ display:none !important; }
+
 /* ---------- BACKGROUND GLOBAL ---------- */
 body{
   background:

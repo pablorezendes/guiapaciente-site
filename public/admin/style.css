@@ -24,6 +24,8 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%; margin:0}
+/* o atributo hidden precisa vencer .login/.dash que usam display:grid */
+[hidden]{display:none !important}
 body{
   font-family:var(--f-body);
   background:
