@@ -781,3 +781,113 @@ h1, h2{ letter-spacing:-.02em; }
   [data-reveal]{ opacity:1; transform:none; }
   .hero-card, .hero-badge, .hero-selo{ animation:none; }
 }
+
+/* ============================================================
+   OTIMIZACAO MOBILE - celulares (<= 600px)
+   Consolidado da auditoria dedicada de 3 agentes:
+   header, hero, conteudo, tabela de refeicoes, flutuantes.
+   ============================================================ */
+@media (max-width: 600px){
+
+  /* ---- Header / navegacao ---- */
+  .nav-wrap{ padding:10px 16px; gap:10px; }
+  .nav-right{ gap:8px; }
+  .lang-switch{ padding:3px; }
+  .lang-btn{ padding:6px 8px; min-height:42px; }
+  .nav-menu a{ padding:14px; font-size:1rem; }
+
+  /* ---- Hero ---- */
+  .hero{ padding:44px 0 56px; }
+  .hero-copy h1{ font-size:2.4rem; }
+  .lead{ font-size:1.04rem; margin-bottom:1.6rem; }
+  .hero-cta{ gap:10px; }
+  .hero-cta .btn{ width:100%; justify-content:center; }
+  .hero-stats{ grid-template-columns:repeat(2, 1fr); gap:10px; }
+  .hero-stats li{ padding:12px 14px; }
+  .hero-stats strong{ font-size:1.5rem; }
+
+  /* capa + selo ONA empilhados e centralizados */
+  .hero-art{ flex-direction:column; align-items:center; }
+  .hero-ona{
+    position:static;
+    transform:none;
+    animation:none;
+    margin:22px auto 0;
+    width:max-content;
+    max-width:100%;
+  }
+  .hero-ona::before{ display:none; }
+
+  /* ---- Cards: padding mais enxuto ---- */
+  .mvv-card, .s-card, .checklist-card, .b-card,
+  .finding-card, .info-card, .meta, .team-card{ padding:22px; }
+  .specialties{ padding:24px; }
+
+  /* ---- Callout ---- */
+  .callout{ padding:18px; gap:12px; }
+
+  /* ---- Abas (acomodacoes + direitos): rolagem horizontal ---- */
+  .tabs, .rights-tabs{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    justify-content:flex-start;
+    scroll-snap-type:x mandatory;
+    padding-bottom:6px;
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar,
+  .rights-tabs::-webkit-scrollbar{ display:none; }
+  .tab, .rt{
+    flex:0 0 auto;
+    min-height:44px;
+    scroll-snap-align:start;
+  }
+
+  /* ---- Imageshow: legenda mais compacta ---- */
+  .imgshow-cap{ padding:14px 16px; gap:8px; }
+  .imgshow-cap b{ font-size:1rem; }
+  .imgshow-cap span{ font-size:.78rem; }
+
+  /* ---- Timeline (alta hospitalar) ---- */
+  .timeline{ padding-left:20px; }
+  .t-step{ gap:0; }
+  .t-body{ margin-left:20px; padding:16px 18px; }
+
+  /* ---- Tabela de refeicoes: vira lista de 2 linhas ---- */
+  .meals-table .meal-head{ display:none; }
+  .meal-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:4px 12px;
+    padding:14px 18px;
+  }
+  .meal-row span[role="cell"]:first-child{
+    flex:1 1 100%;
+    font-weight:700;
+    font-size:1.02rem;
+    color:var(--c-teal-dark);
+  }
+  .meal-row span[role="cell"]:nth-child(2){
+    flex:1 1 auto;
+    color:var(--c-text-muted);
+    font-size:.92rem;
+  }
+  .meal-row .price{
+    flex:0 0 auto;
+    margin-left:auto;
+  }
+
+  /* ---- Metas / citacao: numeros proporcionais ---- */
+  .meta-num{ font-size:3.4rem; }
+  .q-mark{ font-size:4rem; }
+
+  /* ---- Chatbot: alvos de toque 44px ---- */
+  .chat-input input{ padding:12px 14px; }
+  .chat-input button{ width:44px; height:44px; }
+
+  /* ---- Prompt de instalacao PWA: nao sobrepor flutuantes ---- */
+  .install-prompt{ bottom:150px; }
+  .install-prompt.is-visible{ transform:translateY(0); }
+}
